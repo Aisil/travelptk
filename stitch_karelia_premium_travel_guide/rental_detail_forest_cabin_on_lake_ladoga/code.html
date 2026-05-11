@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c5ca",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#00dce5",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#454747",
+                        "outline-variant": "#3a494a",
+                        "on-secondary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12131a",
+                        "on-tertiary-fixed-variant": "#47464a",
+                        "tertiary-container": "#dfdce0",
+                        "primary-container": "#00f5ff",
+                        "on-tertiary-container": "#616064",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#b4b5b5",
+                        "primary-fixed": "#63f7ff",
+                        "surface-container-highest": "#33343c",
+                        "surface-bright": "#383941",
+                        "on-tertiary-fixed": "#1b1b1e",
+                        "surface-container-low": "#1a1b22",
+                        "secondary": "#c6c6c7",
+                        "on-tertiary": "#303033",
+                        "on-primary": "#003739",
+                        "inverse-primary": "#00696e",
+                        "secondary-fixed": "#e2e2e2",
+                        "outline": "#849495",
+                        "on-primary-fixed": "#002021",
+                        "background": "#12131a",
+                        "on-primary-fixed-variant": "#004f53",
+                        "on-error": "#690005",
+                        "surface-variant": "#33343c",
+                        "tertiary": "#fcf8fd",
+                        "primary-fixed-dim": "#00dce5",
+                        "on-secondary": "#2f3131",
+                        "surface-container-high": "#292931",
+                        "on-background": "#e3e1ec",
+                        "inverse-surface": "#e3e1ec",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e3e1ec",
+                        "inverse-on-surface": "#2f3038",
+                        "surface-container-lowest": "#0d0e15",
+                        "surface-container": "#1e1f26",
+                        "surface": "#12131a",
+                        "on-surface-variant": "#b9caca",
+                        "tertiary-fixed": "#e4e1e6",
+                        "primary": "#e9feff",
+                        "on-primary-container": "#006c71"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "element-gap": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "section-padding-y": "120px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glassmorphism-ice {
+            background: rgba(18, 19, 26, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-border { border: none !important; }
+        .scale-98:active { transform: scale(0.98); }
+        .snap-scroll-mandatory { scroll-snap-type: y mandatory; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-gutter py-6 max-w-container-max mx-auto">
+<div class="font-display-xl text-headline-md tracking-tighter text-on-background dark:text-on-background">KARELIA</div>
+<div class="hidden md:flex items-center gap-element-gap">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Destinations</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Experiences</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Map</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary dark:text-primary-container border-b-2 border-primary-container pb-1" href="#">Gallery</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps uppercase tracking-widest hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+                Plan Trip
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Full-Width Mosaic Photo Gallery -->
+<section class="w-full px-gutter max-w-container-max mx-auto mb-16">
+<div class="grid grid-cols-12 grid-rows-2 gap-4 h-[700px]">
+<div class="col-span-12 md:col-span-8 row-span-2 overflow-hidden rounded-2xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide cinematic shot of a modern Nordic cabin with floor-to-ceiling glass windows nestled in a snowy Karelian forest. The twilight sky is painted with soft purple and deep blue hues, and the interior of the house glows with warm, amber light, reflecting off the pristine white snow. The architecture is minimalist, featuring dark charred wood and sharp geometric lines that contrast beautifully with the organic forest environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDOAW5mImdXa0DfBuC-ALdLXg4bp4haXKRDf-LNdDTMjjCSL-4-0YopGMEd5gPvrmhs65t_oZrDBagbj6dbWPtIysKMokmIsJrDUwJ2a14sJ94-KjT2xFEg9eDNrB_Ks4qWR0M_oBolaC2vESXwBS8k2uAZB86Mh6YGXVDPDSYNFOo29c6As4dFQk4qHTRqa-jd7z5PrBP5PUaxA6203k1sPoEi2LjADyqEB-5SotL3o91UKBZbqwDAYoPjKERl8TQwi5F2k9CSSbi"/>
+</div>
+<div class="hidden md:block col-span-4 row-span-1 overflow-hidden rounded-2xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An interior detail shot of a minimalist Karelian living space featuring a sleek, black suspended fireplace. Large panoramic windows show a vista of frozen pine trees under a clear, starlit sky. The room is decorated with high-end Nordic furniture in shades of zinc and charcoal, with a textured wool throw and a single piece of abstract sculpture on a low stone table. The lighting is low and moody, emphasizing the quiet luxury of the retreat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgsOVS6RcPU2w3IbOa0Qw9fPJMk-q3rBlDCXVFLIibpOYttRvOrOkEDU4jiZNrDrNKu0h4U8FIfEEjxdrE_ivMXn9wH7LqCWjwsOZ57gi-WUSZlUFfuk7zWwDIvj-Om48Zge6xCgYy1tKcro3o_e3AqjVrPxhHB9HBLkD20Hr6oPl0eguubt5aHHyXKBfyYlnl2fh0guP6AfJUBEwnl4V8SacvrHAnDYX--QPs5Mg1U6hOlo4ZI18RJeV_UZ2PbNV6juhO9uK6iTg8"/>
+</div>
+<div class="hidden md:block col-span-2 row-span-1 overflow-hidden rounded-2xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of a traditional yet modern Finnish sauna interior made of pale cedar wood. Steam rises softly from the hot stones in a black metal heater, illuminated by a hidden warm LED strip. Through a small porthole window, the dark blue of the Nordic night creates a striking color contrast with the golden warmth of the wood. The scene captures the essence of serene, private wellness in the far north." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_1Fcq7suK2bIN9jEZR2N2eEaCDZfkCLKnJi4_Y2A0wSrKM5S4xg6MSPSqkixrS-9lcQucPi33SDGfZicieYdjUyI74gJBAmRGjEIhg4m3wuLpYF9D9S9-RWFzo99w38mdK3FOOwtafsOKA7o7LykaWDrnglUciQKu3e5wnzHQpHnYfwgfOi2qfHVeLnIZkEcWOTGhyoJWStv01wftRsCTbkgmNDvctUZSbtWO3xjPZYNXDVk2OFNv-jiMxBNewhtrohXMHOUaAnaP"/>
+</div>
+<div class="hidden md:block col-span-2 row-span-1 overflow-hidden rounded-2xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An aerial vertical shot of a private wooden dock extending into a mirror-still, deep blue lake in Karelia. A single minimalist rowing boat is tied to the dock, its dark silhouette sharp against the water. The surrounding shoreline is dense with dark green evergreens and dusted with a light frost. The composition is highly symmetrical and peaceful, embodying the isolation and beauty of the northern wilderness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIEcSwDMhfklp0AT-leBHPYyK9aOCqCUKxXvuIVbPHP_tP7WcmFcRrQDcdfxh4K-Bka8BDIVEYWDmcQvtQzdczU3T5J5BQJN7arEXV4ocIsZeYGOYUeKW1BN81bYSBI8sGHc7ucW8FhZ-rGfqwW-NYN2ivy1iEJ0Nf9d5xD5Af_v0oEvobV6MMI3iUgtCtUNNJwBjG3sUULz23-Lfg8dZfJBJ-2TGaggNQix-MV9wr3K6JkozdVZiMzV4opS_IBi48DNpEV0OEO0uk"/>
+</div>
+</div>
+</section>
+<!-- Content & Booking Widget -->
+<section class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-element-gap items-start pb-section-padding-y">
+<!-- Editorial Description -->
+<div class="md:col-span-8">
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-4">
+<span class="bg-primary-container/10 text-primary-fixed-dim px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest">Luxury Lodge</span>
+<span class="bg-primary-container/10 text-primary-fixed-dim px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest">Nature Reserve</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-6">The Obsidian Retreat: Saimaa Lakehouse</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                        Perched on the edge of the volcanic rock formations of the Saimaa archipelago, the Obsidian Retreat offers an unparalleled connection to the wild Karelian landscape. Designed by visionary Nordic architects, the structure disappears into the forest canopy, utilizing charred timber and expansive glass to blur the lines between interior comfort and raw nature.
+                    </p>
+</div>
+<!-- Amenities Grid -->
+<div class="mb-16">
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-primary-fixed-dim mb-8">Curated Amenities</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-stack-md">
+<div class="bg-surface-container-low p-6 rounded-2xl flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl mb-3" data-icon="restaurant">restaurant</span>
+<span class="font-label-caps text-[11px] uppercase tracking-wide text-on-surface">Chef's Kitchen</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl mb-3" data-icon="fireplace">fireplace</span>
+<span class="font-label-caps text-[11px] uppercase tracking-wide text-on-surface">Fireplace</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl mb-3" data-icon="sailing">sailing</span>
+<span class="font-label-caps text-[11px] uppercase tracking-wide text-on-surface">Private Boat</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl mb-3" data-icon="sauna" style="font-variation-settings: 'FILL' 1;">hot_tub</span>
+<span class="font-label-caps text-[11px] uppercase tracking-wide text-on-surface">Arctic Sauna</span>
+</div>
+</div>
+</div>
+<!-- Detail Section -->
+<div class="border-t border-outline-variant/20 pt-12 space-y-12">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-background mb-4">The Experience</h4>
+<p class="text-on-surface-variant leading-relaxed">
+                            Every morning begins with the silent dance of mist over the lake. Our guests are provided with exclusive access to the surrounding 400-hectare private reserve, featuring hidden hiking trails and secluded spots for aurora viewing. The interior features heated basalt floors and custom-made furniture from local artisans, ensuring that even the coldest nights are met with absolute warmth and luxury.
+                        </p>
+</div>
+<!-- Map Widget -->
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest text-primary-fixed-dim mb-6">Location</h4>
+<div class="w-full h-64 rounded-2xl overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="A minimalist digital map graphic of the Lake Saimaa region in Finland. The map features a high-contrast dark mode aesthetic with deep zinc backgrounds and glowing teal accents for the water bodies. A single, pulse-like animated marker indicates the cabin's location. The style is clean and architectural, avoiding cluttered labels for a premium directory feel." data-location="Lake Saimaa, Finland" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIvdGArZ-24TgXJZs2O0VZXsYkFC8AtYCsxvQkUCOTLdm1kZptG_vYG6kDvPBihszuJ9vAWV-7ir1PEwTyv5K1OyJN1opl4MrHxvKxA-uy0fpjVNue2m2Qs97hDNhOBiu7D-PNRhesoPYN4DQHBhYJPlRD-dGibJgSpUYCuPPBgvCy2AfxnSEvNISMjLXwpvrg1zym6tdoLjkj0BjA7D7o4We6bxvI1Z7bQ130twGry-YnqSp9Wtxs_ogcetIVSDgX54Iqe89L0vtE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex items-center gap-3 bg-background/60 backdrop-blur-md p-3 rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="location_on">location_on</span>
+<span class="font-label-caps text-[10px] uppercase tracking-widest text-on-background">North Saimaa, Region VII</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Booking Widget -->
+<div class="md:col-span-4 sticky top-32">
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/10 shadow-xl">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="font-label-caps text-[10px] uppercase tracking-widest text-primary-fixed-dim block mb-1">From</span>
+<span class="font-display-xl text-4xl text-on-background">€1,250</span>
+<span class="font-body-md text-on-surface-variant">/night</span>
+</div>
+<div class="flex items-center gap-1 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-sm">4.9</span>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-highest p-3 rounded-lg border-b border-outline-variant">
+<label class="block font-label-caps text-[9px] uppercase text-on-surface-variant mb-1">Arrival</label>
+<span class="text-sm font-medium">Oct 12, 2024</span>
+</div>
+<div class="bg-surface-container-highest p-3 rounded-lg border-b border-outline-variant">
+<label class="block font-label-caps text-[9px] uppercase text-on-surface-variant mb-1">Departure</label>
+<span class="text-sm font-medium">Oct 19, 2024</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-3 rounded-lg border-b border-outline-variant">
+<label class="block font-label-caps text-[9px] uppercase text-on-surface-variant mb-1">Guests</label>
+<span class="text-sm font-medium">2 Adults</span>
+</div>
+</div>
+<button class="w-full bg-primary-fixed-dim text-on-primary font-label-caps text-label-caps uppercase tracking-widest py-5 rounded-xl flex items-center justify-center gap-3 hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        Book via WhatsApp
+                    </button>
+<p class="text-center mt-6 font-label-caps text-[10px] uppercase text-on-surface-variant/60 tracking-tighter">
+                        Response time: &lt; 15 minutes
+                    </p>
+</div>
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-[10px] uppercase tracking-widest">Carbon Neutral Stay</span>
+</div>
+</div>
+</section>
+<!-- Alternating Light Section -->
+<section class="bg-primary py-section-padding-y text-on-primary-container overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-element-gap items-center">
+<div class="relative">
+<img class="w-full h-[500px] object-cover rounded-2xl" data-alt="A high-contrast light-mode photograph of a minimalist architectural detail. A white concrete staircase with sharp shadows cuts diagonally across a bright white wall. The lighting is harsh and direct, creating a graphic, sculptural quality. In the background, a single black designer chair sits in a pool of soft afternoon light. The aesthetic is extremely clean, airy, and sophisticated, emphasizing the purity of form and the play of light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0LZwxmehYUI_-n_XVjxKtVR1iSxq2vYQNQMmIt1RvUE1Out3ECv5hClXwsqKZz1FYOzKOgFZ_qUaEUBIKBWKKV2uZjY6oAGY6H5Y-XLK1-uYjo2rD6n0rIf4R5ZhQh852CZ8ukAyYnxA9JJzCLWGtTjBUcU1ndaAdn8_RtgUirDFNJ5VrDSQH-58he6ila9oMM-WCE88v8uqigR-GkPhwHX9GWXtPHK2eP2201BPa902EfnGMjcvmxO3ODBsg9B6wi3SygsafHwy8"/>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container p-6 rounded-2xl hidden md:flex flex-col justify-end">
+<span class="font-display-xl text-3xl text-on-primary-container mb-2">01.</span>
+<span class="font-label-caps text-[10px] uppercase tracking-widest">Architectural Integrity</span>
+</div>
+</div>
+<div class="pl-0 md:pl-12">
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight text-on-primary-container">Ethereal Spaces, Designed for Silence.</h2>
+<p class="font-body-lg text-body-lg mb-8 text-on-primary-container/80">
+                        The cabin's geometry is a direct response to the northern light. At the winter solstice, the sun skims the horizon, casting long, dramatic shadows that were mathematically calculated to animate the interior walls throughout the day.
+                    </p>
+<a class="inline-flex items-center gap-4 font-label-caps text-label-caps uppercase tracking-widest border-b-2 border-on-primary-container pb-1 hover:gap-6 transition-all" href="#">
+                        Discover the Architecture
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-section-padding-y max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-display-xl text-headline-md text-on-background">KARELIA</div>
+<p class="font-label-caps text-[10px] tracking-[0.2em] text-secondary opacity-60">© 2024 UNFORGETTABLE KARELIA. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-element-gap">
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80" href="#">Terms</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80" href="#">Contact</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80" href="#">Press</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined text-on-background text-lg" data-icon="public">public</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined text-on-background text-lg" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

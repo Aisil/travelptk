@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#1b1b1e",
+                    "surface-container-highest": "#33343c",
+                    "error": "#ffb4ab",
+                    "outline-variant": "#3a494a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-fixed": "#63f7ff",
+                    "inverse-surface": "#e3e1ec",
+                    "error-container": "#93000a",
+                    "background": "#12131a",
+                    "surface-variant": "#33343c",
+                    "on-secondary": "#2f3131",
+                    "primary-container": "#00f5ff",
+                    "secondary-container": "#454747",
+                    "on-primary-fixed": "#002021",
+                    "surface-bright": "#383941",
+                    "tertiary-fixed-dim": "#c8c5ca",
+                    "inverse-primary": "#00696e",
+                    "secondary": "#c6c6c7",
+                    "tertiary-fixed": "#e4e1e6",
+                    "on-secondary-container": "#b4b5b5",
+                    "surface": "#12131a",
+                    "primary": "#e9feff",
+                    "on-tertiary-container": "#616064",
+                    "on-tertiary": "#303033",
+                    "surface-container": "#1e1f26",
+                    "on-error": "#690005",
+                    "outline": "#849495",
+                    "on-surface-variant": "#b9caca",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-primary": "#003739",
+                    "on-secondary-fixed-variant": "#454747",
+                    "on-background": "#e3e1ec",
+                    "on-surface": "#e3e1ec",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-container-high": "#292931",
+                    "on-primary-container": "#006c71",
+                    "surface-container-low": "#1a1b22",
+                    "tertiary-container": "#dfdce0",
+                    "tertiary": "#fcf8fd",
+                    "surface-tint": "#00dce5",
+                    "surface-container-lowest": "#0d0e15",
+                    "on-tertiary-fixed-variant": "#47464a",
+                    "primary-fixed-dim": "#00dce5",
+                    "surface-dim": "#12131a",
+                    "inverse-on-surface": "#2f3038",
+                    "on-primary-fixed-variant": "#004f53"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "element-gap": "32px",
+                    "stack-md": "16px",
+                    "container-max": "1280px",
+                    "section-padding-y": "120px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glassmorphism-ice {
+            background: rgba(18, 19, 26, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(18, 19, 26, 0.2) 0%, rgba(18, 19, 26, 0.8) 100%);
+        }
+        .scale-98:active { transform: scale(0.98); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-gutter py-6 max-w-container-max mx-auto">
+<div class="font-display-xl text-headline-md tracking-tighter text-on-background dark:text-on-background">KARELIA</div>
+<div class="hidden md:flex gap-element-gap items-center">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary dark:text-primary-container border-b-2 border-primary-container pb-1 transition-opacity duration-300" href="#">Destinations</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-300" href="#">Experiences</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-300" href="#">Map</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-opacity duration-300" href="#">Gallery</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps uppercase tracking-widest hover:opacity-80 transition-all scale-98 active:scale-95">Plan Trip</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full overflow-hidden flex items-end pb-16">
+<div class="absolute inset-0 z-0">
+<img alt="Ruskeala Canyon Marble Quarry" class="w-full h-full object-cover" data-alt="A breathtaking cinematic wide shot of the Ruskeala Mountain Park marble quarry in Karelia. The scene features steep, vertical marble cliffs with intricate grey and white patterns rising from crystal-clear, deep turquoise water. The lighting is soft and ethereal, suggesting an early morning Nordic mist. The overall aesthetic is one of high-contrast minimalism, with a focus on natural geometric textures and the cool, serene color palette of the North." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcbnupxU0y4JDeHqzCFslBbk3NV6IFeKRFApxwc4rdd-inAYO9b_kEwSSLtelI8lW11bc-02fNHusAZrKR9b2zK1w-TV8rGXgE0AlFFd4xfYCAuW1YavtyzSbB9S1cBoVUnxD_vzGwniQP0qRsfW2EiVB0dPv5TygE8UTup5511a0siesxRR1gdaLknJgPL-iGqBP2VWszBSnJVKC4DWIpG8-0RGCW9JNMY2oj-m3puuYIe4s5cOYJ4Zdb7QCtsT97M6Mysq56VUy-"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 px-gutter max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-stack-sm mb-stack-md">
+<nav class="flex items-center gap-2 font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">
+<span>Karelia</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Sortavala</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-on-background">Ruskeala Canyon</span>
+</nav>
+<h1 class="font-display-xl text-headline-lg md:text-[80px] uppercase text-white leading-none">Ruskeala Canyon</h1>
+</div>
+</div>
+</section>
+<!-- Quick Info Bar -->
+<div class="relative z-20 -mt-10 px-gutter max-w-container-max mx-auto">
+<div class="glassmorphism-ice rounded-2xl grid grid-cols-2 md:grid-cols-4 gap-gutter p-8 shadow-2xl border border-white/5">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary-fixed">directions_car</span>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Access</p>
+<p class="font-headline-md text-body-lg text-primary">Car / Shuttle</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary-fixed">payments</span>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Entry Fee</p>
+<p class="font-headline-md text-body-lg text-primary">$15 USD</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary-fixed">calendar_month</span>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Best Time</p>
+<p class="font-headline-md text-body-lg text-primary">June - Sept</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary-fixed">explore</span>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Coordinates</p>
+<p class="font-headline-md text-body-lg text-primary">61.94° N, 30.58° E</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="max-w-container-max mx-auto px-gutter py-section-padding-y grid grid-cols-1 lg:grid-cols-12 gap-element-gap">
+<!-- Left: Description -->
+<article class="lg:col-span-8 space-y-element-gap">
+<div class="space-y-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-white">The Jewel of the North</h2>
+<div class="w-20 h-1 bg-primary-container"></div>
+</div>
+<div class="font-body-lg text-on-surface-variant space-y-6">
+<p>Ruskeala Canyon is a former marble quarry that has been transformed into one of Karelia's most mesmerizing natural attractions. Once the source of stone for St. Petersburg's grandest cathedrals and palaces, the quarry was flooded after the industrial operations ceased, creating a deep, crystal-clear reservoir enclosed by sheer white marble walls.</p>
+<p>The water's clarity allows visitors to see deep into the flooded shafts, where the play of light against the marble creates ethereal shades of turquoise and emerald. The surrounding mountain park features a network of well-maintained hiking trails that offer panoramic views of the canyon from various vantage points.</p>
+<p>Adventurous travelers can explore the canyon via rowing boats or take an underground tour to see the frozen marble caves and tunnels that remain from the quarry's mining era. During winter, the canyon transforms into a silent, frozen cathedral of ice and snow, often illuminated by artistic light installations.</p>
+</div>
+<!-- Tag Cloud -->
+<div class="flex flex-wrap gap-3 pt-8 border-t border-outline-variant/20">
+<span class="px-4 py-2 rounded-full bg-primary-container/5 border border-primary-container/20 text-primary-fixed text-label-caps font-label-caps uppercase tracking-wider">#nature</span>
+<span class="px-4 py-2 rounded-full bg-primary-container/5 border border-primary-container/20 text-primary-fixed text-label-caps font-label-caps uppercase tracking-wider">#family-friendly</span>
+<span class="px-4 py-2 rounded-full bg-primary-container/5 border border-primary-container/20 text-primary-fixed text-label-caps font-label-caps uppercase tracking-wider">#history</span>
+<span class="px-4 py-2 rounded-full bg-primary-container/5 border border-primary-container/20 text-primary-fixed text-label-caps font-label-caps uppercase tracking-wider">#photography</span>
+</div>
+</article>
+<!-- Right: Map Widget -->
+<aside class="lg:col-span-4 space-y-stack-md">
+<div class="sticky top-32">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em] mb-4">Location</h3>
+<div class="rounded-2xl overflow-hidden aspect-square border border-outline-variant/30 relative">
+<img alt="Map of Ruskeala region" class="w-full h-full object-cover filter grayscale contrast-125" data-alt="A clean, minimalist topographical map widget of the Ruskeala region in Karelia. The map features a dark mode aesthetic with deep blacks and subtle grey contours. A bright turquoise teal pin marks the exact location of the Ruskeala Canyon. The design is modern and sophisticated, reflecting a high-end travel directory interface." data-location="Ruskeala" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpaZbZemJd_LbvTTXhnp84rnHAr64rQf8V8vm5SMqMhucYw7Qs3WAsnl_ciinOSKUZDiWimVB3IkO_arLER9rf91f3-NjLpSiZvX-l7QzgcQytHAH5E1zcxXeoebl8frVi1JsKKKe1YdWTU1O3dpHrrKbB5b_ek_7SDBz1aCflYiOGoNKs4GxMZAMy4QVL1T5rr843KQcQibrA_8rcT9dah3dt4z7MaRWytO9YdUGNwpaqoOJHartQTvweXgYaBZcgJcIN-fvCOpzi"/>
+<div class="absolute inset-0 bg-primary-container/5 pointer-events-none"></div>
+<div class="absolute bottom-4 right-4">
+<button class="bg-background/90 backdrop-blur-md p-3 rounded-full shadow-lg border border-white/10 hover:bg-primary-container transition-colors group">
+<span class="material-symbols-outlined text-white group-hover:text-black">open_in_new</span>
+</button>
+</div>
+</div>
+<div class="mt-6 p-6 rounded-2xl bg-surface-container border border-outline-variant/10">
+<p class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest mb-2">Distance from Petrozavodsk</p>
+<p class="font-headline-md text-headline-md text-white">260 KM <span class="text-body-md font-body-md text-on-surface-variant lowercase">approx. 3.5 hrs</span></p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Explore Nearby -->
+<section class="bg-surface-container-lowest py-section-padding-y">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-16">
+<div class="space-y-2">
+<p class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">Regional Discovery</p>
+<h2 class="font-headline-lg text-headline-lg text-white">Explore Nearby</h2>
+</div>
+<button class="text-primary-container font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-2 hover:opacity-70 transition-opacity">
+                    View All <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden aspect-[4/5] relative mb-6">
+<img alt="Kivach Falls" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dramatic vertical photograph of Kivach Falls in Karelia during the late summer. Powerful white water cascades over dark volcanic rocks, surrounded by a lush green forest of pine and birch trees. The lighting is moody and overcast, emphasizing the high-contrast textures of the water and stone. The aesthetic is clean and premium, consistent with a luxury Nordic travel guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQGSdk1C8Smk72WGJNAaahsP0GA-f1XC0HzPPQcHJMTNl8gsNvqFeMa4Cv1ewR3n0exbagzBS7UEcWQT04vvlgz51qvXsn8SpICKOiWYocaihTUf6xOHTY1Tm79wAU0bOyOsgNMLn3WthfFZzJwvtVSrpP-aBaSdI36nrWO-B9MXmIGHRdCRbD35NC2xtmKSo2mDOQpVnQ5ZLAqpoK3SJZP1nTzAOhsVZihMR4XHFeFhWCWyT8qkd7hnykN87K6pT91tOuUsA7BgDF"/>
+<div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-background/60 backdrop-blur-md text-[10px] font-label-caps text-white uppercase tracking-widest border border-white/10">Waterfall</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Kivach Falls</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2">One of Europe's largest plain waterfalls, known for its sheer power and basalt rocks.</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden aspect-[4/5] relative mb-6">
+<img alt="Ladoga Skerries" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A breathtaking aerial view of the Ladoga Skerries, featuring numerous small, rocky islands scattered across a calm, mirror-like lake. The islands are covered in dark pine forests and grey granite outcrops. The scene is captured during the golden hour, casting long shadows and a warm glow over the cool blue water. The composition is artistic and minimalist, highlighting the rhythmic pattern of the archipelago." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Ty2D6dxtlctxsF3YwbbsI2BSn3f8lSyvkCsUbSPIpanv_Yhv79nRaYYvIe-5SRunwz9goPkUciL0j4UY3jKhWp5Y80a-TeDTC5SA_q56gaM0Pf-_EZYRv0jyga6AIrGQbS4flTfMVRk4UzvjsGIToeLhGiBzR9MeBIi6kFKGkvwxFVpsTIdvVrUCN_bnylu549HzHuR8vMdSAE56b6ucubRTSmcSQjNugi7_sG1iviAk70oPw3kN9_YwGhxnzYOVKgc3S71RWw5j"/>
+<div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-background/60 backdrop-blur-md text-[10px] font-label-caps text-white uppercase tracking-widest border border-white/10">Archipelago</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Ladoga Skerries</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2">A unique landscape of rocky islands and narrow straits on the shores of Lake Ladoga.</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden aspect-[4/5] relative mb-6">
+<img alt="Valaam Monastery" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The historic Valaam Monastery standing majestically on a rugged island shore. The architecture features blue domes and white stone walls, contrasted against the deep blue of Lake Ladoga and the dark green of the northern wilderness. The lighting is crisp and clear, creating a peaceful and exclusive mood. The photograph emphasizes architectural precision and the serene isolation of the monastic complex." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7bupiDR-kfB67CzjD7inYVmQ5_zllZyxm5042kzTnN7apaLTYyAjOd_DgTwZLz2m3YsI4OcpcjuqguS_nnX5UWar2BQwC2ThHuVOLmRH8j0XoAjwX9xzxNbM4hZ1wpPY_JVKycjpPIyQwIQv4v1opsjQR4WCkmtMlOjn8tJvBMIENacR5oQEG1QD2oHjKl7nvpE3FSEDuclrD4luSB2eAsyc94a6d-UqZM2kUH8vUtXcwHIm0IdyvEAU2o7Y_azwti2A6m2MRqdoF"/>
+<div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-background/60 backdrop-blur-md text-[10px] font-label-caps text-white uppercase tracking-widest border border-white/10">Spiritual</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Valaam Monastery</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2">A majestic spiritual complex situated on the remote Valaam archipelago.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-background dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-section-padding-y max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-display-xl text-headline-md text-on-background">KARELIA</div>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">© 2024 UNFORGETTABLE KARELIA. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-element-gap">
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 duration-200" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 duration-200" href="#">Terms</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 duration-200" href="#">Contact</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 duration-200" href="#">Press</a>
+</div>
+</div>
+</footer>
+</body></html>

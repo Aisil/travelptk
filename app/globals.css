@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+body {
+  background: #12131a;
+  color: #e3e1ec;
+  font-family: 'Inter', sans-serif;
+}
+
+.glassmorphism-ice {
+  background: rgba(18, 19, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.card-hover-effect:hover img {
+  transform: scale(1.05);
+}

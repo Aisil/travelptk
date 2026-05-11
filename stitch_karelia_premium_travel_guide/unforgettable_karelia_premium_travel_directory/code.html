@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARELIA | Unforgettable Northern Journeys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002021",
+                    "secondary-container": "#454747",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "background": "#12131a",
+                    "on-secondary": "#2f3131",
+                    "primary-container": "#00f5ff",
+                    "on-background": "#e3e1ec",
+                    "secondary": "#c6c6c7",
+                    "outline-variant": "#3a494a",
+                    "on-tertiary-container": "#616064",
+                    "on-tertiary-fixed": "#1b1b1e",
+                    "outline": "#849495",
+                    "tertiary-fixed-dim": "#c8c5ca",
+                    "on-primary-fixed-variant": "#004f53",
+                    "surface-dim": "#12131a",
+                    "surface-container-low": "#1a1b22",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#b4b5b5",
+                    "surface-container": "#1e1f26",
+                    "primary-fixed-dim": "#00dce5",
+                    "inverse-surface": "#e3e1ec",
+                    "surface-bright": "#383941",
+                    "on-error": "#690005",
+                    "tertiary": "#fcf8fd",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#b9caca",
+                    "inverse-on-surface": "#2f3038",
+                    "on-primary-container": "#006c71",
+                    "tertiary-fixed": "#e4e1e6",
+                    "on-primary": "#003739",
+                    "surface": "#12131a",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-highest": "#33343c",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-tint": "#00dce5",
+                    "primary": "#e9feff",
+                    "on-surface": "#e3e1ec",
+                    "on-tertiary-fixed-variant": "#47464a",
+                    "surface-container-lowest": "#0d0e15",
+                    "on-tertiary": "#303033",
+                    "inverse-primary": "#00696e",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-fixed": "#63f7ff",
+                    "surface-variant": "#33343c",
+                    "tertiary-container": "#dfdce0",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#292931"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "element-gap": "32px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "section-padding-y": "120px",
+                    "gutter": "24px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glassmorphism-ice {
+            background: rgba(18, 19, 26, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .card-hover-effect:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md no-border glassmorphism-ice">
+<div class="flex justify-between items-center px-gutter py-6 max-w-container-max mx-auto">
+<div class="font-display-xl text-headline-md tracking-tighter text-on-background dark:text-on-background">KARELIA</div>
+<div class="hidden md:flex gap-element-gap">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary dark:text-primary-container border-b-2 border-primary-container pb-1" href="#">Destinations</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Experiences</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Map</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Gallery</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps uppercase tracking-widest scale-98 active:scale-95 transition-transform hover:opacity-80 transition-opacity duration-300">
+                Plan Trip
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full overflow-hidden flex items-center justify-center bg-zinc-950">
+<div class="absolute inset-0 z-0">
+<img alt="Karelia Forest" class="w-full h-full object-cover opacity-60" data-alt="A cinematic, wide-angle landscape shot of a dense, emerald-green Karelian forest during the golden hour. Sun rays pierce through ancient pine needles, creating misty light shafts across a mirror-like lake surface in the background. The color palette is dominated by deep forest greens, dark volcanic blacks, and ethereal teal highlights, reflecting a premium and majestic Nordic atmosphere. The lighting is dramatic and low-key, emphasizing the stark beauty of the subarctic wilderness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwikr-qZxTctb4pFviwRDH9Tt5GIuIfc5SQONE2DHJabNJeFssIfFALmeCSvk4_nNPlvq1urFtbFn_SJWQ6UYpL7DOSDqlUw2fc2_33m8ZvZWhFKx1HL9oYFIolrV4UNNjUwB70Nf3jq-M4qogpuBytnFdlRhoZXwclzUjDtL2LOQr1XCxZ1nDJa0ZMvM4SrzgdNpcEDUHkJiHejrJY-0pOvwZ2VsR2xxIrJzocUsXR3ndRuPHtzi43Vi4UxgQQxhLM2y25TCpsTSl"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+</div>
+<div class="relative z-10 text-center px-gutter max-w-4xl">
+<h1 class="font-display-xl text-[64px] md:text-display-xl text-primary mb-stack-md tracking-tighter uppercase leading-none">
+                UNFORGETTABLE KARELIA
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-element-gap max-w-2xl mx-auto">
+                Explore the silent majesty of the North. A curated directory of the most exclusive natural wonders and architectural gems in the heart of Karelia.
+            </p>
+<div class="flex flex-col md:flex-row gap-stack-md justify-center">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 rounded-full font-label-caps text-label-caps uppercase tracking-widest hover:opacity-90 transition-opacity">
+                    Start Your Journey
+                </button>
+<button class="border-2 border-outline text-on-background px-10 py-5 rounded-full font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-background hover:text-background transition-all">
+                    View Catalog
+                </button>
+</div>
+</div>
+</header>
+<!-- Map Section -->
+<section class="bg-white text-on-secondary-fixed py-section-padding-y">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="mb-element-gap">
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase tracking-[0.3em] mb-4 block">Navigation Hub</span>
+<h2 class="font-headline-lg text-headline-lg text-on-secondary-fixed uppercase">EXPLORE LOCATIONS</h2>
+</div>
+<div class="relative w-full h-[600px] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl group border border-outline-variant/10">
+<img alt="Map Background" class="w-full h-full object-cover opacity-80" data-alt="An artistic, high-contrast overhead satellite view of the Karelian landscape, emphasizing the intricate network of deep blue lakes and dark green forests. The map interface is stylized with minimalist teal markers and clean white typography. The overall aesthetic is bright and airy, using a light-mode palette that contrasts sharply with the previous dark section. The lighting is even and soft, suggesting clarity and precision in navigation." data-location="Karelia Region" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyKNsEr3VyHeUdseev4D8_VHlxV5K0Ex7alNya9fabrDPvM63fkR-W5YOH_Bi2wyzILP79vHChdEc32T-wIZ1E5vFQhk0-wZBx6dH9xPFUA4qdIFkPTQkpqRXjMAoQHWdNmDzF_KG2pFkVK3PUtEa2ZN3lhg_Vv8z0evsbwPNjwwqC3vLby3g6H81xebnS5s_Zlyjzuxgf9nywPi2su3a0wm6dg7YakAvwRqJ8fqY_HVaVGucJqjKbo1Kd-7dnYJYfsNRgFZ5pWAOz"/>
+<!-- Placeholder UI Elements for Map -->
+<div class="absolute top-8 right-8 flex flex-col gap-stack-sm">
+<button class="w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center text-on-secondary-fixed hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center text-on-secondary-fixed hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<div class="absolute bottom-8 left-8 p-6 bg-white/90 backdrop-blur-md rounded-xl shadow-xl max-w-sm border border-outline-variant/20">
+<p class="font-label-caps text-label-caps text-on-primary-container mb-2">Featured Route</p>
+<h3 class="font-headline-md text-headline-md mb-2">The Blue Marble Trail</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">A 42km scenic journey through the heart of Ruskeala's canyon system.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Grid -->
+<section class="bg-white text-on-secondary-fixed py-section-padding-y">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-element-gap">
+<!-- Card 1 -->
+<div class="group card-hover-effect cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg">
+<img alt="Ruskeala Canyon" class="w-full h-full object-cover transition-transform duration-500" data-alt="A stunning portrait-oriented photograph of the Ruskeala Mountain Park marble canyon. The crystal-clear turquoise water is framed by sheer white marble cliffs and vibrant green pine trees. The image captures a serene, high-end travel aesthetic with a crisp, bright light-mode feel. The composition is balanced and elegant, emphasizing the dramatic verticality of the northern landscape. Colors are naturally saturated, featuring teals, whites, and deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHlqMC8Ezv76Z3FXYE68kV3KC7-ZBw2W8nBwsysJC_fklG52gT7dbwzMu-qOq_0FoZ-0bMKg2_i2DE0M7M5bH_WzuOnXx9Pq5qwTsAHKUm4KEcYIMLbEVU2h9zRCLmRi53WQ7lXFKdnHXtju0uXEOs1_8jHIHuAAR5-UwXGup3xlsP5hCE69pdad7id1xT1ErXW3ABdtS35E9PsYqPDCtEbqWQVRQNqBRIxne3vRRfPDl00qSIWsBh3ox6CD4w35F9A0hk9aFn4VNs"/>
+</div>
+<div class="px-2">
+<span class="inline-block bg-primary-container/10 text-on-primary-container font-label-caps text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">Nature &amp; Parks</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-on-primary-container transition-colors">Ruskeala Canyon</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant mb-4">A breathtaking flooded marble quarry turned into a sanctuary of northern light and water.</p>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Read more <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group card-hover-effect cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg">
+<img alt="Kivach Waterfall" class="w-full h-full object-cover transition-transform duration-500" data-alt="A powerful, long-exposure shot of the Kivach waterfall in Karelia, where the dark, rushing river water turns into white foam over volcanic basalt steps. The surrounding landscape is a lush, vibrant green forest illuminated by soft, diffused northern daylight. The aesthetic is clean and luxurious, focusing on the raw energy of nature within a serene, light-filled environment. The palette emphasizes dark stones, bright whites, and lush forest greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgzsn5aNbQft_oMCCuJUSPuJNx4F9eYEeAba8d3jbUzKua58JKiPhVzPVb-UItn-W_J6r1N42U_t1nNk6RUMOIT5ghECAJyJI_iubL3MhdjaOjNyGNeyouXCkUvg-IIfEkOuYd5Cjz4-Hdyngh44vrxwQanr73ob-n3w8fAlA98AJgO_WOE2w8Tpr7YIPDk7HS0Xmrxtme-e50dHFVSynLhDKy6ccehE0dQvs-DAEonRDE_4KZeAtvXFTsBxo9gtjpTlaF7SA5755T"/>
+</div>
+<div class="px-2">
+<span class="inline-block bg-primary-container/10 text-on-primary-container font-label-caps text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">Adventure</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-on-primary-container transition-colors">Kivach Falls</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant mb-4">The second highest lowland waterfall in Europe, cascading through ancient basalt rocks.</p>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Read more <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group card-hover-effect cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg">
+<img alt="Ladoga Skerries" class="w-full h-full object-cover transition-transform duration-500" data-alt="An aerial view of the Ladoga Skerries, a labyrinth of small rocky islands and narrow channels in the world's largest freshwater lake in Karelia. The water is a deep, sapphire blue, contrasting with the dark grey granite of the islands and the sparse northern vegetation. The lighting is high-key and atmospheric, creating a sense of vastness and premium exclusivity. The visual style is modern, minimalist, and deeply connected to the Nordic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG3UT_LYMX4MwAcLLoag7Eui6Ir_KVg-tY_FvLx1VltdBZ7As9W6-H7cYQvyZ5nKSvhnFfhLYZh2G0N20cwko3zCMTrziT-N7VVpdJynHUFCEXjL7ToOQicspiPIUYnefuc1Cw87cnfUdAQr9WncX9bGf4UJQVyNLAPdTdtn5mZ5IYWL2A_pT1yM6uQiLAJfzgeqgjL3JbeagoPamzvCuUoiILu76QOUbSG--bEqo-0RkMZQSaYNpS9FNG1GIS8yYwyrOzkBDUqDP6"/>
+</div>
+<div class="px-2">
+<span class="inline-block bg-primary-container/10 text-on-primary-container font-label-caps text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">Expedition</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-on-primary-container transition-colors">Ladoga Skerries</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant mb-4">An archipelago of granite islands scattered across the vast expanse of Lake Ladoga.</p>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Read more <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Gallery -->
+<section class="bg-surface-container-lowest text-on-surface py-section-padding-y">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="mb-element-gap text-center">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-[0.4em] mb-4 block">Visual Diary</span>
+<h2 class="font-headline-lg text-headline-lg uppercase">THE NORDIC CANVAS</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[800px]">
+<!-- Tile 1 (Large Vertical) -->
+<div class="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group cursor-crosshair">
+<img alt="Misty Forest" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vertical, atmospheric photograph of a misty Karelian forest at dawn. The fog is thick and ethereal, partially obscuring the tall, dark silhouettes of spruce trees. The color palette is monochromatic with hints of teal and deep blue, creating a moody, premium dark-mode aesthetic. The lighting is soft and otherworldly, capturing the quiet, meditative spirit of the northern wilderness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgKGTLd8vb8GJH4VF4JgaAByS8TxfWR6a-IlGINUlmTRCLZ6NQqPWdFM6s1IFLqWIzCy21e7wXdBD7SuuqgeJTIm1xR1bispVUu1gFnJrKN8hMf0LhWB5Y77xM_lGUeVDAQJCDWeF_YiG2s75OF_n09H8LzLeeyEBm_dsdxi-xqNmUgZzpWqIhlxBJSOsUnAuIRl59gSfgYzp4FQP7r_0YC_1cd_IFtmiVVvKcOVHdueYqn2XFtKAMBZKWJun-ftbzFsK7YqcMYQlw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+<p class="font-label-caps text-label-caps uppercase text-primary-container">Dawn at Paanajarvi</p>
+</div>
+</div>
+<!-- Tile 2 (Square Top) -->
+<div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group cursor-crosshair">
+<img alt="Icy Lake" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of crystalline ice formations on the shore of a Karelian lake. The ice is sharp and geometric, reflecting a cold, pale northern sun. The background is a dark, frozen expanse of water. This image embodies the 'Ice' aesthetic with a palette of whites, cool teals, and deep blacks, emphasizing the stark, geometric rigidity of nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDL-ccnMaREV74WFnnLwLPh7c4kXVgWgenIMp1oKwwuqJceJV8no79xZebSVzx35QSXxUvjx92LSuoqK3hdRVMcaKlNhjDkQ0RDXw0xEA-cA9w50CYWaAnU_orAw_Q76fJBoLInEPV623zjkR-U4axMSsL1qMNOpZwUVdDmh6KiCF45gDrOXrNp5cTFFdobIWsCer-J6b6O6G5Nm3oKUXgavVFPtAgD28kfAtedNtMsUmWlLDJpTHEIuFnOy4z-i8_4hfLVs2MB2-K"/>
+</div>
+<!-- Tile 3 (Square Top) -->
+<div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group cursor-crosshair">
+<img alt="Mountain Peak" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A panoramic view of a snow-capped Karelian ridge against a dramatic, dark stormy sky. The contrast between the brilliant white snow and the ink-black clouds creates a high-tension, high-contrast visual. The lighting is cinematic and focused, highlighting the jagged textures of the rocks. The mood is powerful and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNfOrY9GsVozkU24-xHvJHPGe6q2pnQsAgI_Do7yqOB2RgdVf-BB826wnHABJK2-r020etOAnNlpXETkTcQGK7AiJUj_E27ONVBh_tYv5nbgTArPW_vQnh2_BMZoAANhMZFyNcbLPhCov66DGEFkHCy4tfHNJMbF657OKMEF6gVuJ15qxMOTZvFrUoLxW-gjAsI34r_QNU17sR1nVTdMHZ6N7parxpiYZ5poR8IHgNDX7Zg7MCUhwF5PC6LIbeqSpgDkXCbaDzim5h"/>
+</div>
+<!-- Tile 4 (Wide Bottom) -->
+<div class="md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden relative group cursor-crosshair">
+<img alt="River View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide, cinematic shot of a narrow river winding through a valley of autumnal orange and dark green trees in Karelia. The water reflects the dark tones of the sky, creating a rhythmic and flowing composition. The aesthetic is sophisticated and quiet, using a palette of earthy oranges, deep forest greens, and volcanic blacks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKJs0h09oHREFQR8QYCKbQ23gRO1q1ubHPEZo0TuOAG_v1HIh7WbZmFy8SbgMuJHq3F9fenQoTpGue6JB11pJwKCF8GoMW2EYksukrgCUXdeaUHOT9Yt0OesEVgEYgbmhF8V9RKUVRhsJZoDmiYo1qWnB2ktvorxT9zn2Kg-G5o-Wh1TrZsz8pJqGE8qratK-wqFPVqlticQpYULLlOk5Zx_mMeMDAQdumwz5Zbz76fplvb7DV5I_iHE1KihmQISBXW5b-91YGDQYo"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-section-padding-y max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-display-xl text-headline-md text-on-background mb-stack-sm">KARELIA</div>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">© 2024 UNFORGETTABLE KARELIA. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-element-gap">
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 transition-opacity duration-200" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 transition-opacity duration-200" href="#">Terms</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 transition-opacity duration-200" href="#">Contact</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors hover:opacity-80 transition-opacity duration-200" href="#">Press</a>
+</div>
+<div class="flex gap-stack-md">
+<a class="text-secondary hover:text-primary-fixed duration-200" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-secondary hover:text-primary-fixed duration-200" href="#">
+<span class="material-symbols-outlined">language</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

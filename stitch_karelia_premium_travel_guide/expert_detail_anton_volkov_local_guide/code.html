@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expert Detail - Anton Volkov</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#33343c",
+                        "on-primary-container": "#006c71",
+                        "inverse-surface": "#e3e1ec",
+                        "primary-fixed": "#63f7ff",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-secondary": "#2f3131",
+                        "on-background": "#e3e1ec",
+                        "surface": "#12131a",
+                        "on-primary-fixed": "#002021",
+                        "surface-bright": "#383941",
+                        "primary": "#e9feff",
+                        "surface-container-high": "#292931",
+                        "surface-tint": "#00dce5",
+                        "tertiary-fixed": "#e4e1e6",
+                        "outline": "#849495",
+                        "on-primary": "#003739",
+                        "tertiary-fixed-dim": "#c8c5ca",
+                        "tertiary": "#fcf8fd",
+                        "tertiary-container": "#dfdce0",
+                        "surface-variant": "#33343c",
+                        "surface-container-lowest": "#0d0e15",
+                        "surface-container": "#1e1f26",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-primary": "#00696e",
+                        "on-error": "#690005",
+                        "secondary": "#c6c6c7",
+                        "surface-container-low": "#1a1b22",
+                        "surface-dim": "#12131a",
+                        "primary-fixed-dim": "#00dce5",
+                        "on-tertiary-fixed": "#1b1b1e",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#b4b5b5",
+                        "inverse-on-surface": "#2f3038",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed-variant": "#004f53",
+                        "secondary-container": "#454747",
+                        "primary-container": "#00f5ff",
+                        "on-tertiary-container": "#616064",
+                        "outline-variant": "#3a494a",
+                        "on-tertiary": "#303033",
+                        "on-surface-variant": "#b9caca",
+                        "on-tertiary-fixed-variant": "#47464a",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "background": "#12131a",
+                        "on-surface": "#e3e1ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "element-gap": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "section-padding-y": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/30 hidden md:flex">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface uppercase">KARELIA</div>
+<div class="flex gap-element-gap items-center">
+<a class="text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1 font-label-caps text-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">EXPERTS</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">EXPLORE</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">JOURNAL</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary-fixed-dim cursor-pointer">search</span>
+<button class="font-label-caps text-label-caps bg-primary-fixed-dim text-on-primary-fixed px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors">BECOME AN EXPERT</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pb-[100px]"> <!-- Padding for sticky contact bar -->
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-8 py-section-padding-y flex flex-col md:flex-row gap-element-gap items-center md:items-start">
+<div class="w-full md:w-1/2 relative h-[600px] rounded-2xl overflow-hidden bg-surface-container-highest">
+<img alt="Portrait of Anton Volkov" class="w-full h-full object-cover" data-alt="A striking, high-contrast portrait of a rugged outdoor guide standing in a pristine, snow-covered northern forest. He is wearing high-end dark technical gear that contrasts sharply with the stark white environment. The lighting is cinematic, highlighting his weathered features against the deep shadows of the pines. The mood is sophisticated, exclusive, and authentically connected to the harsh, majestic landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhnmebFiUfN2g5aX9y2MkRWk13Xz8jK8YmYX5YjgOVvfYwVEI7DA1-OZAYY-TpRWa95h90ucEZ51W0O78YXaAEASo2LDqL5kjVzlMmQaJ0bVvfssZ086JyqlBITI63H8_XnJdYMvIRk2Z3F-kBpprmsITra7zl19lJa4Bj59EfsaFU5Yo7pLjjD4CeMEWfghrNqJwg-p9fO3W7788X6HJtBw1UQU3AaYv1xjCyJLjMbogiNkxhvdu8mDKJcPRElGnY_z475k9uw75J"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center h-full pt-12 md:pt-0">
+<div class="inline-block px-4 py-1 rounded-full bg-primary-fixed-dim/10 text-primary-fixed-dim font-label-caps text-label-caps mb-stack-md">NATURE GUIDE &amp; PHOTOGRAPHER</div>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-stack-md">Anton Volkov</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-element-gap max-w-xl">
+                    With over 15 years navigating the untamed heart of Karelia, I specialize in uncovering hidden lakes and capturing the raw, majestic beauty of the North. My expeditions are designed for those who seek deep immersion and cinematic photography in isolated, pristine landscapes.
+                </p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed-dim">location_on</span>
+<span class="font-body-md text-body-md">Petrozavodsk, Karelia</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed-dim">star</span>
+<span class="font-body-md text-body-md">5.0 (42 Expeditions)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="max-w-container-max mx-auto px-8 py-section-padding-y border-t border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-element-gap">Offerings</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Service 1 -->
+<div class="bg-surface-container rounded-2xl p-8 hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Full Day Forest Expedition</h3>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim">8000₽</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">A comprehensive journey into deep taiga, tracking wildlife and visiting ancient glacial lakes. Includes expert guidance, wilderness safety, and premium trail provisions.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full font-label-caps text-label-caps text-on-surface-variant">8 HOURS</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full font-label-caps text-label-caps text-on-surface-variant">MODERATE</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface-container rounded-2xl p-8 hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Night Sky Photography Session</h3>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim">5000₽</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Master the art of astrophotography and capturing the Aurora Borealis. Technical instruction, location scouting, and post-processing techniques provided.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full font-label-caps text-label-caps text-on-surface-variant">4 HOURS</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full font-label-caps text-label-caps text-on-surface-variant">BEGINNER FRIENDLY</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Gallery -->
+<section class="max-w-container-max mx-auto px-8 py-section-padding-y border-t border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-element-gap">Portfolio</h2>
+<div class="columns-1 md:columns-3 gap-gutter space-y-gutter">
+<div class="relative rounded-2xl overflow-hidden bg-surface-container break-inside-avoid">
+<img alt="Aurora" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" data-alt="A breathtaking, wide-angle shot of the Aurora Borealis dancing across an ink-black night sky above a frozen northern lake. The vibrant green and teal ribbons of light contrast deeply against the stark, dark landscape below. The scene evokes a sense of pristine isolation and cinematic scale, perfectly capturing the premium, high-contrast aesthetic of the northern wilderness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvQOOZHUt1rbzf87c0N5-Ti5d-0A_tDA6EaYR7pLLmzo3eFVo_HEYDYq_klVoZGyOWgJ8WVqZMwqeBL1xCbznMi7baJUutsRfSEavvWJLJn3YfuhEvYUZXtFxYquzmS_dd79URxABRjOT8iD4mNlieRy9IhxDAq9SuzLpsOFD0jkLL34XAk7ApKAn_suj8_KqB_5Ek1CdimeY7KOJfoXzprh5YA3n6SzTyn-1n_hS6KxiFe3vkFopmJMrMG2Cl-nBmDsQy_w54xMpD"/>
+</div>
+<div class="relative rounded-2xl overflow-hidden bg-surface-container break-inside-avoid">
+<img alt="Forest" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" data-alt="A moody, atmospheric photograph of a dense, dark pine forest shrouded in thick morning fog. The trees stand like rigid geometric pillars against the diffuse, ethereal white mist, creating a striking interplay of light and shadow. The aesthetic is extremely quiet, sophisticated, and exclusive, embodying the dramatic polarities of the northern landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDhMwpHpFLQBDUI-fynk9iTZOIDynvJtqrwejlHm_Xum9RDohEOL-VrjAshCwnJNzJfLnmiZ6vCD3ND-JYPOnEE0OyLMelkExTocGYaerHAbl1_fjP91oGep7qpas311WuVWcheomqb1iwcKteHG1zQL6EevDZUU5ZD-GNtoRbCREIKADaB-NiUd9uN2rc8Oqi9SVe19Ot-8_BREX5iKaVE6WYP2qp00dGq35WG3cAMaJ_mWRdZLIVV9e_sJa3ipORGpQM9Qa0HJbV"/>
+</div>
+<div class="relative rounded-2xl overflow-hidden bg-surface-container break-inside-avoid">
+<img alt="Lake" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" data-alt="A crystal-clear, high-resolution image of an ancient, perfectly still glacial lake reflecting towering, snow-capped mountains. The water acts as a flawless mirror, emphasizing absolute clarity and precision. The surrounding dark rock formations provide a sharp contrast to the bright ice and sky. The image feels expansive, cinematic, and profoundly serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD5B9kYXXxQgdMXgftR87dVUuzIV0HtyAOmEtOmmVgdnfa-LtlHIPR9ZepmzqHOGOEHMfEJPSfLMkghxAJUjAixQ8mM4SFjMvPJv_5KPVxuXKFP2RA3aNqLE2bLxcG8X3Ga_sBhQCwJRI29arhegirbgFh144MLxOm1Ex7ngr_cBeWUO-CvVY9m21D4X0AeTBi-jQCNwC1b_ofhSwQJjJ5vDFMOOT8GRwyWIT2VMCp1agqxLR4x3GRW_inTg4ZMB0QsspwPLbacfPn"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Contact Bar -->
+<div class="fixed bottom-0 left-0 w-full z-40 p-4 md:p-8 pointer-events-none hidden md:block">
+<div class="max-w-container-max mx-auto flex justify-end">
+<div class="bg-surface-container-highest/90 dark:bg-surface-container-highest/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-outline-variant/20 flex gap-4 pointer-events-auto items-center">
+<span class="font-headline-md text-headline-md text-on-surface mr-4">Contact Anton</span>
+<button class="bg-primary-fixed-dim text-on-primary-fixed font-label-caps text-label-caps px-6 py-3 rounded-xl hover:bg-primary-fixed transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    WHATSAPP
+                </button>
+<button class="bg-surface-container text-primary-fixed-dim border border-primary-fixed-dim font-label-caps text-label-caps px-6 py-3 rounded-xl hover:bg-primary-fixed-dim/10 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+                    TELEGRAM
+                </button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface-container-highest/90 dark:bg-surface-container-highest/90 backdrop-blur-md fixed bottom-0 w-full z-50 border-t border-outline-variant/20 shadow-xl flex justify-around items-center h-20 px-4 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary-fixed-dim/10 rounded-xl px-4 py-2 scale-98 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-caps text-label-caps">Experts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-caps text-label-caps">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>

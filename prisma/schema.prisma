@@ -1,0 +1,66 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Content {
+  id             Int         @id @default(autoincrement())
+  wpId           Int?        @unique
+  title          String
+  slug           String      @unique
+  content        String
+  contentType    ContentType @default(POST)
+  latitude       Float?
+  longitude      Float?
+  mainImage      String?
+  videoUrl       String?
+  gallery        String?
+  status         Status      @default(PENDING)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  tags           Tag[]
+  category       Category?   @relation(fields: [categoryId], references: [id])
+  categoryId     Int?
+  submitterName  String?
+  submitterEmail String?
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  wpId      Int?       @unique
+  name      String
+  slug      String     @unique
+  parentId  Int?
+  parent    Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children  Category[] @relation("CategoryHierarchy")
+  contents  Content[]
+}
+
+model Tag {
+  id        Int        @id @default(autoincrement())
+  wpId      Int?       @unique
+  name      String
+  slug      String     @unique
+  contents  Content[]
+}
+
+model AdminUser {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+enum ContentType {
+  POST
+  PAGE
+}
+
+enum Status {
+  PENDING
+  PUBLISHED
+}

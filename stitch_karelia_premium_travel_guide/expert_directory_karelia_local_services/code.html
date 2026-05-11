@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Karelia - City Services &amp; Experts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#33343c",
+                    "on-primary-container": "#006c71",
+                    "inverse-surface": "#e3e1ec",
+                    "primary-fixed": "#63f7ff",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-secondary": "#2f3131",
+                    "on-background": "#e3e1ec",
+                    "surface": "#12131a",
+                    "on-primary-fixed": "#002021",
+                    "surface-bright": "#383941",
+                    "primary": "#e9feff",
+                    "surface-container-high": "#292931",
+                    "surface-tint": "#00dce5",
+                    "tertiary-fixed": "#e4e1e6",
+                    "outline": "#849495",
+                    "on-primary": "#003739",
+                    "tertiary-fixed-dim": "#c8c5ca",
+                    "tertiary": "#fcf8fd",
+                    "tertiary-container": "#dfdce0",
+                    "surface-variant": "#33343c",
+                    "surface-container-lowest": "#0d0e15",
+                    "surface-container": "#1e1f26",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "inverse-primary": "#00696e",
+                    "on-error": "#690005",
+                    "secondary": "#c6c6c7",
+                    "surface-container-low": "#1a1b22",
+                    "surface-dim": "#12131a",
+                    "primary-fixed-dim": "#00dce5",
+                    "on-tertiary-fixed": "#1b1b1e",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#b4b5b5",
+                    "inverse-on-surface": "#2f3038",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-primary-fixed-variant": "#004f53",
+                    "secondary-container": "#454747",
+                    "primary-container": "#00f5ff",
+                    "on-tertiary-container": "#616064",
+                    "outline-variant": "#3a494a",
+                    "on-tertiary": "#303033",
+                    "on-surface-variant": "#b9caca",
+                    "on-tertiary-fixed-variant": "#47464a",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#454747",
+                    "error-container": "#93000a",
+                    "background": "#12131a",
+                    "on-surface": "#e3e1ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "element-gap": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "container-max": "1280px",
+                    "section-padding-y": "120px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Space Grotesk"
+                    ],
+                    "display-xl": [
+                            "Space Grotesk"
+                    ],
+                    "headline-lg-mobile": [
+                            "Space Grotesk"
+                    ],
+                    "headline-lg": [
+                            "Space Grotesk"
+                    ],
+                    "label-caps": [
+                            "Space Grotesk"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-xl": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.15em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/30 flat no shadows">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-container-max mx-auto">
+<a class="font-headline-lg text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface uppercase" href="#">KARELIA</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1 font-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">EXPERTS</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">EXPLORE</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">JOURNAL</a>
+<a class="text-on-surface-variant font-label-caps hover:text-primary-fixed transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-primary-fixed-dim text-on-primary-fixed font-label-caps py-3 px-6 rounded hover:bg-primary-fixed transition-colors">BECOME AN EXPERT</button>
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-5 md:px-8 py-12 md:py-24">
+<!-- Header Section -->
+<header class="mb-16">
+<h1 class="font-display-xl text-display-xl text-on-surface mb-6">LOCAL MASTERS.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Curated professionals to elevate your Nordic experience. From wilderness guides to contemporary artisans.</p>
+</header>
+<!-- Filter Bar -->
+<div class="flex flex-wrap gap-4 mb-12">
+<button class="bg-primary-fixed-dim text-on-primary-fixed font-label-caps text-label-caps px-6 py-2 rounded-full hover:bg-primary-fixed transition-colors">ALL</button>
+<button class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-6 py-2 rounded-full hover:bg-surface-bright transition-colors">GUIDES</button>
+<button class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-6 py-2 rounded-full hover:bg-surface-bright transition-colors">PHOTOGRAPHY</button>
+<button class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-6 py-2 rounded-full hover:bg-surface-bright transition-colors">BEAUTY</button>
+<button class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-6 py-2 rounded-full hover:bg-surface-bright transition-colors">TRANSPORT</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<article class="bg-[#1e1f26] rounded-2xl overflow-hidden flex flex-col hover:bg-surface-bright transition-colors group">
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Profile of Elias Virtanen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A striking portrait of a rugged Nordic wilderness guide with a short beard, wearing a dark waterproof jacket. Shot against a dark, moody background with subtle, cold, cinematic rim lighting. High-contrast, premium dark mode aesthetic, sophisticated and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdesZGYAUCNilE4ZcxTOslGE9rs6GDQikRD6UKa-GIpXazUhya2rZIesdnK6Qmpp4RsNmD80JuB1P3gxWsexOX-a4VTnTeLfJqn49CS4R63mg37mggOGU9iwgDlYRtWvKLGZOA2W3hcbbixku6XaBuaT0VvwoCRZ0AXWpGIjfv_2W85ZzGQ2CUYz-rsZENEsCZoIR7oPS9l592HgLaSrUgufed15Ytc4P34uOg95tOe8jhzoNqc_H01h3pr7ADm0XZHXSIu7V_wRJu"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Elias Virtanen</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary-fixed-dim/10 text-primary-fixed-dim font-label-caps text-label-caps px-2 py-1 rounded">WILDERNESS GUIDE</span>
+<div class="flex text-primary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Specializing in deep-forest trekking and aurora hunting in the remote northern regions. Certified survival expert with over 15 years of local experience.</p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-contrast shot of a frozen, snow-covered pine forest under a dark, moody sky. The scene exudes a quiet, exclusive Nordic aesthetic, perfect for a premium dark mode travel site." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeXhk5ACJEDGjjXtinziPxP5ZA06pzVqqtmVW2BPT4Ht1bxB7NeKJXtFcKr1vIJnUCAunReVHRVnjkeYRklhE2icQkVeY1kecPfVU3hehZ5SclwjfojqBdr4m15WjcUupWGJ5NH_8AobDCB03x3IEugmiSeD3GQlP71_qN1VxkGrEmOJ2TntIVSFOQ_qxpCl94HPXAXo90Bo5V85-0bCuO1ukgnlaer8O3JahFuBGP28Wd5Zwpha6Eoc7lL3UM-gfSZCeFBe-649_6"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A vivid green aurora borealis glowing intensely across a pitch-black night sky over a still, dark lake. The image reflects a high-end, majestic Northern wilderness experience, rich in deep blacks and vibrant neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKqRZ0lF0vVy5YKqYgf4Ucwk-FObjn3-xAvMHJeS8vH44b20mywEVW49nPCu54cCw2kRpyVA_4Ob93xTvhzzy-qCga4X8HPbrJz3CgngTE8WdN2etfSSzZxwMxTYb7-w9Pe3dVTJaPE4wKfp4AmmVUkilZ6ItHqLiDKD70-GvwIaFhw91jrdS6T-A7PC0ubE904QCcG7nCJYXI6qPmSooWq0nFxEq9CK5tE7y9XmuSaElUAB8ZB08uxGHpSVpgTiPMh3_L1HHgrhnP"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden relative flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-50" data-alt="A close-up of a roaring campfire in the snow at night. The bright orange and yellow flames contrast sharply against the deep, ink-like darkness of the surrounding environment. Premium, evocative dark mode photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBknPCTvQekqAqowM6PxFlvGr6-jA5vj-xJpf1wCLHiFg63PFjGwpRXxSqwIzbWhuEC2in90zuo2l9ByytyY6l3tQ2xwhwubkag1a7_uLFLF_qKxIafyKNF0eQ9gIrF5q-0HCbStWl7-krl49LDp5I7lo-Mf13Xt0B0-0n_tAOnS7xy2Mrw1uKWCKfKLUuLfWpteaezTI3xkNhfS7ulFpMck_piuzmDOAp5317ydgVd-szlgbiAv6ZHMtHyWO5sCYz3KetVwwfI4BuX"/>
+<span class="absolute font-label-caps text-on-surface">+12</span>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low">
+<span class="font-headline-md text-[18px] text-on-surface">From 8,500₽</span>
+<button class="bg-primary-fixed-dim text-on-primary-fixed font-label-caps px-4 py-2 rounded hover:bg-primary-fixed transition-colors">BOOK SESSION</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-[#1e1f26] rounded-2xl overflow-hidden flex flex-col hover:bg-surface-bright transition-colors group">
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Profile of Sofia Laine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sophisticated portrait of a female Nordic photographer with striking features, wearing a sleek black turtleneck. Shot in a minimalist studio setting with moody, directional lighting casting deep shadows. High-end, premium dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACoXQsRowIEGdW5vSCTAwyTbewvek3LSzTIm7EVLVY91AmbpA3f6oEMdA9rg0ww2-lZER92azazCTrNl7D9JHGlDhmFaLnEa_Dc0qQewOlbEqhQ_HqhRPKp0_XCt7xg2y_FsnmsY2j4_npzNXh_poUGSsXm90zvZrjwaIiKDYdQVd4nRryvKAsX_A1RzLcYUkW03-XhSM1RTOC_jHFATZEQGEoVAA3BehKxLVnZD4NJoOcA8QU2QofT2fLlym9yRocO2LkTN7d9AHG"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Sofia Laine</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary-fixed-dim/10 text-primary-fixed-dim font-label-caps text-label-caps px-2 py-1 rounded">PHOTOGRAPHY</span>
+<div class="flex text-primary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Capturing the stark, majestic contrast of the North. Available for private portrait sessions, elopements, and bespoke landscape documentation.</p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="A moody, high-contrast black and white photograph of a solitary cabin set against a massive, dark mountain face. The image emphasizes cinematic scale and minimalist Nordic architecture, fitting for a luxury travel directory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfZsvRZ2YijsB2mQsZ9KrJmEGpD1b6w9DgGxaOzf-XdfJq7w2n6tN4oYZn96O-Ls87vyv8q1VGyVlrw6URoFfVzwh32a3cyDK93B_WCTlwl9B7q5lMu5scuMl-ezlBJE54SAJ1HkoNuLiqG-pHhTNqBTAZ7MAbmGTAkpLArC3GE_cJ6koMWKwzgko8iiqc61b7-Y_YLLf9BldbU5T9Wqvd7SeLk82FcfDKGE5hXz9Y18Q6KkOQugIQdbEk1GtPDJzPIqwSh590tsO5"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A fashion-forward portrait shot in a snowy landscape. The model wears a striking, voluminous dark coat, standing out vividly against the pristine white snow. The aesthetic is sophisticated, quiet, and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBStTuE9Y9GHRNAoIVVW336mrLrAregDI50ZU26eJ9EjEnYCs2vp_kouvbXMwzjOgu4-A8K4gS78pidFZrOo2OyaDJnBQ_XO-srt089N2T3PEg5ca0vv4cUqejjO8kLCK6KEMA6Igu5Sxp7o7842ppY_3takbjr_mI01u0_5L9OaUwD3divSlf4pCGcynZcLq0Fw_QUAy7ENnhnBogiEWz0KDVDS8DvcoMCOEF06U75r3nfoYLozPSQb3Ad_pmfC0NSmibnW5gha47w"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden relative flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="A close-up, abstract black and white shot of cracked, dark ice. The textures are sharp and highly detailed, embodying the geometric rigidity and stark contrast of the design system. Premium, editorial mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx53UKPFuEd7kDikxG0z6MVhN6vgGIF3z1P4Wfi3vzUIHVSJbqZLJxyGfpH1GAvXkn8_EQ1XiNHjHDMRXguaUkhTygbVQmuD2ppbSc00ZfITujxEdi29CHY8RixuhD2FnPCTweexPA0q31aXyfpPBFgsVT0D_UZWd7MfIMYZ-sPK3Ng6PfIWpXd_YDx9_jmzUGlBninDpryqMgsJchRFgsoxiYftqyuZNe288dtsUQlAhr-YkB3mtruPlXjQsGzjrkc0KMCjIpZtCH"/>
+<span class="absolute font-label-caps text-on-surface">+24</span>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low">
+<span class="font-headline-md text-[18px] text-on-surface">From 15,000₽</span>
+<button class="bg-primary-fixed-dim text-on-primary-fixed font-label-caps px-4 py-2 rounded hover:bg-primary-fixed transition-colors">BOOK SESSION</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-[#1e1f26] rounded-2xl overflow-hidden flex flex-col hover:bg-surface-bright transition-colors group">
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Profile of Markus Berg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sharp portrait of a premium transport driver with a clean-cut look, wearing a dark suit. Shot against a blurred, dark urban background at night with subtle neon reflections. The image feels exclusive, professional, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3nFt7YcHFbkERxDKOJ_Mj3bOSP05e0dqBSrOvOKoiHBB0KFeML7dKpegtfsM0am5ePR5tk7IAwi0F7c_DJTYOn-Ov9VkFy6wJ2Pq3SrPcmsf0dbqkOAyndMXswbkanj4H_l-Ch9ZpgcfpEH9NpLaKukyu9tDcjI6XGCN4N9ae8dGbsPGpUGn7mCNeC2IzEDyUpzcoKyX0fb2jSyz5UnMn49vMYCRFuQeV8NoNeDRbau7OW3HroZ4Z2NHJFyj0lLIYzYZcA7v3K5jL"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Markus Berg</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary-fixed-dim/10 text-primary-fixed-dim font-label-caps text-label-caps px-2 py-1 rounded">PREMIUM TRANSPORT</span>
+<div class="flex text-primary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Luxury winter transport and logistical support. Fleet includes modified all-terrain SUVs tailored for safety and comfort in extreme polar conditions.</p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek, dark luxury SUV driving on a snow-covered road surrounded by dark pine trees. The aesthetic is moody and cinematic, emphasizing premium travel and stark, high-contrast environments in a dark mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuyfLY0Yvn_anCRl_8dbl2WVbcsA7SGSfxO5SsL3DuP_nKwUnQehMQ0ZqdPvrjeprpeR8EUNPdMDa7ePLEYDxQCrK7Mqdr3r4LsZBxApkkQRzd35IYGWmc8kSKE2ff2X_LhxBjgBYNklmNha4Ami_d7Y9I_Lpoi0rTDCXm-R7GQvMzrzaniKBW99MhYoFd1QTLOqxI4xwMEUz_lJevQAdKPwg3Rs6NL9s_MJ-z9H-Ftd7v3tM9uPTI50qONGwRZceHQ2NbudAEeY3y"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An interior shot of a luxury vehicle showing premium dark leather seats and sleek, modern dashboard elements. The lighting is low and sophisticated, conveying an exclusive, high-end travel experience fitting the minimalist brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWPQgpSGdEhLQHrhZaESXZOL1tlayNu7Yi89ecRK6j-6Ucp_mm65LDHffw_Jn4QOK-cOyzTFr6PurzaZEZNysoRQtyxH3Gx6guA_U8ruAWyvsQOah20AAFd5VkEikkXXPQSBbEt8P_DNNGogz7vc21kuPyfm8WqJgjV2nIgdaeq5tjHO1jcVeiQn_gCzUGVGsaMwQ0Z7aCBSKiHyvArLJnEehVKFITPyMAZAcw07jw1GP4r8NFILZLrOeB8RlWsCU509YfrO2ro0zs"/>
+</div>
+<div class="aspect-square bg-surface-container-lowest rounded-lg overflow-hidden relative flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-50" data-alt="A wide, sweeping shot of a dark, winding road cutting through a dramatic, snow-dusted mountainous landscape at twilight. The scene is vast and cinematic, reflecting the epic scale of the North. Deep blacks and subdued tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcN4u3mTYqni3rdyptEPoTVPc-NP0PwZcGznfLrIiZRJvq7IrQjZR8EH1l7-Q1FHoN33yUDI6tCwsYPcp5jYpyi4JDjAjy8XFgJ6ErCNMPpF2BGYSFnBoGoQ4EUo3WCZmDPkZMFB916Lc-m9DTiUK-_ef7pKimADu1loQBTuj6Z7lePgRvylMEZ58NMWBj8-Kpnh6slHto7B09vewGMNnMCh23TF3A4BKFSPGSt7Jwqtoqs4IkEZ9c27U1a2lu7QF90QWEnEk2OG2o"/>
+<span class="absolute font-label-caps text-on-surface">+8</span>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low">
+<span class="font-headline-md text-[18px] text-on-surface">From 12,000₽</span>
+<button class="bg-primary-fixed-dim text-on-primary-fixed font-label-caps px-4 py-2 rounded hover:bg-primary-fixed transition-colors">BOOK SESSION</button>
+</div>
+</article>
+</div>
+<div class="mt-16 text-center">
+<button class="border-2 border-on-surface text-on-surface font-label-caps px-8 py-4 uppercase hover:bg-surface-bright transition-colors">LOAD MORE EXPERTS</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface-container-highest/90 dark:bg-surface-container-highest/90 backdrop-blur-md fixed bottom-0 w-full z-50 border-t border-outline-variant/20 shadow-xl flex justify-around items-center h-20 px-4 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-caps text-label-caps mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary-fixed-dim/10 rounded-xl px-4 py-2 scale-98 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-caps text-label-caps mt-1">Experts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width py-section-padding-y max-w-container-max mx-auto px-8 flex flex-col md:flex-row justify-between items-start gap-element-gap pb-32 md:pb-section-padding-y">
+<div class="font-headline-md text-headline-md text-on-surface uppercase">KARELIA</div>
+<div class="flex flex-col md:flex-row gap-8 font-body-md text-body-md text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-on-surface transition-colors" href="#">Contact Support</a>
+<a class="hover:text-on-surface transition-colors" href="#">Expert Portal</a>
+</div>
+<div class="text-on-surface-variant font-label-caps text-label-caps">
+            © 2024 KARELIA DIRECTORY. CRAFTED FOR THE NORTH.
+        </div>
+</footer>
+</body></html>
