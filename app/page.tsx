@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getPublishedLocations, getAllPublishedLocations } from "@/lib/actions";
 import DynamicPublicMap from "@/components/DynamicPublicMap";
 import Link from "next/link";
@@ -84,7 +85,7 @@ export default async function Home() {
                   <img 
                     alt={loc.title} 
                     className="w-full h-full object-cover transition-transform duration-500" 
-                    src={loc.mainImage || `https://images.unsplash.com/photo-1549884570-353ee5eb4232?q=80&w=800&auto=format&fit=crop`} 
+                    src={loc.featuredImage || `https://images.unsplash.com/photo-1549884570-353ee5eb4232?q=80&w=800&auto=format&fit=crop`}
                   />
                 </div>
                 <div className="px-2">

@@ -47,9 +47,9 @@ export default async function PageRoute({ params }: { params: Promise<{ slug: st
       <section className="bg-background py-section-padding-y flex-grow">
         <div className="max-w-4xl mx-auto px-gutter">
           <div className="prose prose-invert prose-lg max-w-none prose-p:text-secondary/90 prose-p:leading-relaxed prose-headings:text-on-background prose-headings:font-display-xl prose-a:text-primary-container prose-a:no-underline hover:prose-a:underline">
-             {content.mainImage && (
+             {content.featuredImage && (
                <img 
-                 src={content.mainImage} 
+                 src={content.featuredImage}
                  alt={content.title} 
                  className="w-full aspect-[21/9] object-cover rounded-3xl mb-12 shadow-2xl border border-outline-variant/10"
                />

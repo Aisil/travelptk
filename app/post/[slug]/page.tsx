@@ -34,8 +34,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       {/* Hero */}
       <header className="relative h-[65vh] w-full overflow-hidden flex items-end bg-zinc-950">
         <div className="absolute inset-0">
-          {content.mainImage ? (
-            <img alt={content.title} className="w-full h-full object-cover opacity-50" src={content.mainImage} />
+          {content.featuredImage ? (
+            <img alt={content.title} className="w-full h-full object-cover opacity-50" src={content.featuredImage} />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-surface-container to-background"></div>
           )}

@@ -23,7 +23,7 @@ async function main() {
   });
 
   // 2. Водопад «Белые Мосты»
-  await prisma.location.upsert({
+  await prisma.entry.upsert({
     where: { slug: "belye-mosty" },
     update: {},
     create: {
@@ -39,7 +39,7 @@ async function main() {
   console.log("  ✓ Водопад «Белые Мосты»");
 
   // 3. Гостевой дом «Ладога»
-  await prisma.location.upsert({
+  await prisma.entry.upsert({
     where: { slug: "ladoga-guesthouse" },
     update: {},
     create: {
@@ -55,7 +55,7 @@ async function main() {
   console.log("  ✓ Гостевой дом «Ладога»");
 
   // 4. Квартира в Сортавале
-  await prisma.location.upsert({
+  await prisma.entry.upsert({
     where: { slug: "sortavala-apartment" },
     update: {},
     create: {
@@ -71,7 +71,7 @@ async function main() {
   console.log("  ✓ Квартира в Сортавале");
 
   // 5. Гид Иван
-  await prisma.location.upsert({
+  await prisma.entry.upsert({
     where: { slug: "guide-ivan" },
     update: {},
     create: {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from "../lib/prisma";
 
 // ── Утилиты ──
@@ -54,13 +55,13 @@ function extractVideoUrl(html: string): string | null {
   return null;
 }
 
-function extractGalleryImages(html: string, mainImage: string | null): string[] {
+function extractGalleryImages(html: string, featuredImage: string | null): string[] {
   const allImages = html.match(/https?:\/\/[^\s"'<>]+\.(?:jpg|jpeg|png|webp)/gi) || [];
   const seen = new Set<string>();
   const unique: string[] = [];
   for (const img of allImages) {
     if (/-\d+x\d+\./.test(img)) continue;
-    if (mainImage && img === mainImage) continue;
+    if (featuredImage && img === featuredImage) continue;
     if (seen.has(img)) continue;
     seen.add(img);
     unique.push(img);
@@ -174,7 +175,7 @@ async function main() {
   console.log(`  ✓ Импортировано ${pageCount} страниц.\n`);
 
   // ── Итоги ──
-  const totalContent = await prisma.content.count();
+  const totalContent = await prisma.entry.count();
   const totalCats = await prisma.category.count();
   const totalTags = await prisma.tag.count();
 
@@ -198,9 +199,9 @@ async function importEntry(
   const rawContent = item.content?.rendered || "";
   const content = cleanHtml(rawContent);
 
-  const mainImage = item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+  const featuredImage = item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
   const videoUrl = extractVideoUrl(rawContent);
-  const galleryImages = extractGalleryImages(rawContent, mainImage);
+  const galleryImages = extractGalleryImages(rawContent, featuredImage);
   const gallery = galleryImages.length > 0 ? galleryImages.join(",") : null;
 
   // Категория (у страниц может не быть)
@@ -228,22 +229,22 @@ async function importEntry(
   const longitude = coords.lng || (contentType === "POST" ? 30.0 + Math.random() * 6 : null);
 
   try {
-    await prisma.content.upsert({
+    await prisma.entry.upsert({
       where: { slug },
       update: {
         title, content, contentType, latitude, longitude, categoryId,
-        mainImage, videoUrl, gallery, wpId: item.id,
+        featuredImage, videoUrl, gallery, wpId: item.id,
         tags: { set: tagIds.map((id) => ({ id })) },
       },
       create: {
         title, slug, content, contentType, status: "PUBLISHED",
         latitude, longitude, categoryId,
-        mainImage, videoUrl, gallery, wpId: item.id,
+        featuredImage, videoUrl, gallery, wpId: item.id,
         tags: { connect: tagIds.map((id) => ({ id })) },
       },
     });
 
-    const media = [mainImage ? "📷" : "", videoUrl ? "🎬" : "", gallery ? `🖼${galleryImages.length}` : ""].filter(Boolean).join(" ");
+    const media = [featuredImage ? "📷" : "", videoUrl ? "🎬" : "", gallery ? `🖼${galleryImages.length}` : ""].filter(Boolean).join(" ");
     const typeLabel = contentType === "POST" ? "📝" : "📄";
     console.log(`    ${typeLabel} ${title.substring(0, 55)} ${media}`);
     return true;

@@ -36,15 +36,15 @@ export default async function AdminPagesPage() {
                   <tr key={page.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        {page.mainImage && (
-                          <img src={page.mainImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
+                        {page.featuredImage && (
+                          <img src={page.featuredImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
                         )}
                         <div className="text-sm font-medium text-gray-900 line-clamp-1">{page.title}</div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{page.slug}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                      {page.mainImage ? "📷" : "—"} {page.gallery ? "🖼" : ""}
+                      {page.featuredImage ? "📷" : "—"} {page.gallery ? "🖼" : ""}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span

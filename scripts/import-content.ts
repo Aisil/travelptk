@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from "../lib/prisma";
 
 /**
@@ -72,7 +73,7 @@ function extractVideoUrl(html: string): string | null {
 /**
  * Извлекаем оригинальные (не миниатюры) картинки из HTML-контента.
  */
-function extractGalleryImages(html: string, mainImage: string | null): string[] {
+function extractGalleryImages(html: string, featuredImage: string | null): string[] {
   const allImages = html.match(/https?:\/\/[^\s"'<>]+\.(?:jpg|jpeg|png|webp)/gi) || [];
 
   // Убираем дубли, миниатюры (содержат -NNNxNNN.) и главное фото
@@ -83,7 +84,7 @@ function extractGalleryImages(html: string, mainImage: string | null): string[] 
     // Пропускаем миниатюры WordPress (-300x300, -150x150 и т.д.)
     if (/-\d+x\d+\./.test(img)) continue;
     // Пропускаем главное фото
-    if (mainImage && img === mainImage) continue;
+    if (featuredImage && img === featuredImage) continue;
     // Пропускаем дубли
     if (seen.has(img)) continue;
 
@@ -158,15 +159,15 @@ async function main() {
     const content = cleanHtml(rawContent);
 
     // Главное фото из _embedded
-    const mainImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
-    if (mainImage) withImages++;
+    const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+    if (featuredImage) withImages++;
 
     // Видео из контента
     const videoUrl = extractVideoUrl(rawContent);
     if (videoUrl) withVideo++;
 
     // Галерея: картинки из контента (без миниатюр и дублей)
-    const galleryImages = extractGalleryImages(rawContent, mainImage);
+    const galleryImages = extractGalleryImages(rawContent, featuredImage);
     const gallery = galleryImages.length > 0 ? galleryImages.join(",") : null;
 
     // Категория
@@ -201,21 +202,21 @@ async function main() {
     const longitude = coords.lng || 30.0 + Math.random() * 6;
 
     try {
-      await prisma.location.upsert({
+      await prisma.entry.upsert({
         where: { slug },
         update: {
           title, content, latitude, longitude, categoryId,
-          mainImage, videoUrl, gallery,
+          featuredImage, videoUrl, gallery,
           tags: { set: tagIds.map((id) => ({ id })) },
         },
         create: {
           title, slug, content, latitude, longitude, status: "PUBLISHED", categoryId,
-          mainImage, videoUrl, gallery,
+          featuredImage, videoUrl, gallery,
           tags: { connect: tagIds.map((id) => ({ id })) },
         },
       });
       imported++;
-      const media = [mainImage ? "📷" : "", videoUrl ? "🎬" : "", gallery ? `🖼${galleryImages.length}` : ""].filter(Boolean).join(" ");
+      const media = [featuredImage ? "📷" : "", videoUrl ? "🎬" : "", gallery ? `🖼${galleryImages.length}` : ""].filter(Boolean).join(" ");
       console.log(`   ✓ [${imported}] ${title.substring(0, 60)} ${media}`);
     } catch (error: any) {
       skipped++;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getCategoryTree, createCategory } from "@/lib/actions";
 
 export const dynamic = 'force-dynamic';
