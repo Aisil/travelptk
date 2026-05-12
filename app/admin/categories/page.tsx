@@ -96,7 +96,8 @@ export default async function CategoriesPage() {
                   </td>
                 </tr>
               ) : (
-                categoryTree.map((cat) => (
+                categoryTree.map((cat: any // eslint-disable-line @typescript-eslint/no-explicit-any
+) => (
                   <CategoryRow key={cat.id} category={cat as any} />
                 ))
               )}
