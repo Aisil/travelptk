@@ -79,7 +79,7 @@ export default async function Home() {
       <section className="bg-white text-on-secondary-fixed py-section-padding-y w-full border-t border-gray-100">
         <div className="max-w-container-max mx-auto px-gutter">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-element-gap">
-            {locations.length > 0 ? locations.map((loc) => (
+            {locations.length > 0 ? locations.map((loc: any) => (
               <Link key={loc.id} href={`/post/${loc.slug}`} className="group card-hover-effect cursor-pointer block">
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg bg-zinc-100">
                   <img 

@@ -86,7 +86,7 @@ export default function ApartmentPage() {
                   { icon: <Car size={20} />, label: "Своя парковка" },
                   { icon: <Wind size={20} />, label: "Кондиционер" },
                   { icon: <Tv size={20} />, label: "Smart TV & Netflix" },
-                ].map((item, idx) => (
+                ].map((item: any, idx: any) => (
                   <div key={idx} className="flex items-center gap-3 text-zinc-700">
                     <span className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
                       {item.icon}
@@ -144,11 +144,11 @@ export default function ApartmentPage() {
                 title: "Правила дома",
                 items: ["Заезд после 15:00", "Выезд до 12:00", "Без шумных вечеринок", "Можно с маленькими питомцами"]
               }
-            ].map((block, idx) => (
+            ].map((block: any, idx: any) => (
               <div key={idx} className="bg-zinc-800/50 rounded-2xl p-8 border border-zinc-700/50 hover:bg-zinc-800 transition-colors">
                 <h3 className="text-xl font-bold uppercase tracking-wide text-amber-400 mb-6">{block.title}</h3>
                 <ul className="space-y-4">
-                  {block.items.map((item, i) => (
+                  {block.items.map((item: any, i: any) => (
                     <li key={i} className="flex items-start gap-3">
                       <Check size={18} className="text-amber-500 shrink-0 mt-0.5" />
                       <span className="text-zinc-300 text-sm">{item}</span>
