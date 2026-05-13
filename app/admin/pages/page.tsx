@@ -32,8 +32,7 @@ export default async function AdminPagesPage() {
                   <td colSpan={5} className="px-6 py-12 text-center text-sm text-gray-500">Страницы не найдены</td>
                 </tr>
               ) : (
-                pages.map((page: any
-) => (
+                pages.map((page: any) => (
                   <tr key={page.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">

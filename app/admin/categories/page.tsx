@@ -96,8 +96,7 @@ export default async function CategoriesPage() {
                   </td>
                 </tr>
               ) : (
-                categoryTree.map((cat: any
-) => (
+                categoryTree.map((cat: any) => (
                   <CategoryRow key={cat.id} category={cat as any} />
                 ))
               )}
