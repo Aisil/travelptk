@@ -64,9 +64,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <div>
               <span className="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-[0.3em] mb-6 block">Описание</span>
               <div className="prose prose-invert max-w-none prose-p:text-secondary/90 prose-p:text-body-lg prose-p:leading-relaxed prose-p:mb-6">
-                {content.content.split("\n\n").filter(Boolean).map((p: any, i: any) => (
-                  <p key={i}>{p}</p>
-                ))}
+                <div dangerouslySetInnerHTML={{ __html: content.content }} />
               </div>
             </div>
 

@@ -10,9 +10,14 @@ function cleanContent(html: string): string {
   if (!html) return '';
   return html
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '') // Remove <style> tags and their content
+    .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '') // Remove SVG elements
+    .replace(/<details[^>]*>[\s\S]*?<\/details>/gi, '') // Remove details elements
+    .replace(/<summary[^>]*>[\s\S]*?<\/summary>/gi, '') // Remove summary elements
     .replace(/\s*class="[^"]*"/gi, '') // Remove class attributes
     .replace(/\s*style="[^"]*"/gi, '') // Remove style attributes
     .replace(/\s*id="[^"]*"/gi, '') // Remove id attributes
+    .replace(/\s*data-elementor-[^=]*="[^"]*"/gi, '') // Remove data-elementor attributes
+    .replace(/\s*data-e-[^=]*="[^"]*"/gi, '') // Remove data-e attributes
     .replace(/<div[^>]*>/gi, '') // Remove <div> tags
     .replace(/<\/div>/gi, '') // Remove </div> tags
     .replace(/<span[^>]*>/gi, '') // Remove <span> tags

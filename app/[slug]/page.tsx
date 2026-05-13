@@ -56,9 +56,7 @@ export default async function PageRoute({ params }: { params: Promise<{ slug: st
              )}
              
              <div className="space-y-8">
-               {content.content.split("\n\n").filter(Boolean).map((p: string, i: number) => (
-                 <p key={i}>{p}</p>
-               ))}
+               <div dangerouslySetInnerHTML={{ __html: content.content }} />
              </div>
 
              {galleryImages.length > 0 && (
