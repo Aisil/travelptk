@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import { prisma } from "./prisma";
@@ -88,7 +89,7 @@ export async function createContent(formData: FormData) {
   }
 
   try {
-    await prisma.content.create({
+    await prisma.entry.create({
       data: {
         title,
         slug,
@@ -113,7 +114,7 @@ export async function createContent(formData: FormData) {
 
 export async function getPosts() {
   try {
-    return await prisma.content.findMany({
+    return await prisma.entry.findMany({
       where: { contentType: "POST" },
       include: { category: true },
       orderBy: { createdAt: 'desc' }
@@ -126,7 +127,7 @@ export async function getPosts() {
 
 export async function getPages() {
   try {
-    return await prisma.content.findMany({
+    return await prisma.entry.findMany({
       where: { contentType: "PAGE" },
       include: { category: true },
       orderBy: { createdAt: 'desc' }
@@ -139,7 +140,7 @@ export async function getPages() {
 
 export async function getPublishedPosts() {
   try {
-    return await prisma.content.findMany({
+    return await prisma.entry.findMany({
       where: { status: "PUBLISHED", contentType: "POST" },
       include: { category: true },
       orderBy: { createdAt: 'desc' },
@@ -153,7 +154,7 @@ export async function getPublishedPosts() {
 
 export async function getAllPublishedPosts() {
   try {
-    return await prisma.content.findMany({
+    return await prisma.entry.findMany({
       where: { status: "PUBLISHED", contentType: "POST" },
       include: { category: true },
       orderBy: { createdAt: 'desc' },
@@ -166,7 +167,7 @@ export async function getAllPublishedPosts() {
 
 export async function publishContent(id: number) {
   try {
-    await prisma.content.update({
+    await prisma.entry.update({
       where: { id },
       data: { status: "PUBLISHED" }
     });
@@ -181,7 +182,7 @@ export async function publishContent(id: number) {
 
 export async function getContentBySlug(slug: string) {
   try {
-    return await prisma.content.findUnique({
+    return await prisma.entry.findUnique({
       where: { slug },
       include: { category: true, tags: true },
     });
@@ -194,6 +195,7 @@ export async function getContentBySlug(slug: string) {
 // Обратная совместимость
 export const getLocations = getPosts;
 export const getPublishedLocations = getPublishedPosts;
+export const getPublishedEntries = getPublishedPosts;
 export const getAllPublishedLocations = getAllPublishedPosts;
 export const getLocationBySlug = getContentBySlug;
 export const createLocation = createContent;

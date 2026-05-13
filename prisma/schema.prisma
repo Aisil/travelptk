@@ -7,7 +7,7 @@ datasource db {
   provider = "sqlite"
 }
 
-model Content {
+model Entry {
   id             Int         @id @default(autoincrement())
   wpId           Int?        @unique
   title          String
@@ -16,7 +16,9 @@ model Content {
   contentType    ContentType @default(POST)
   latitude       Float?
   longitude      Float?
-  mainImage      String?
+  featuredImage  String?
+  price          Float?
+  capacity       Int?
   videoUrl       String?
   gallery        String?
   status         Status      @default(PENDING)
@@ -37,7 +39,7 @@ model Category {
   parentId  Int?
   parent    Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
   children  Category[] @relation("CategoryHierarchy")
-  contents  Content[]
+  entries  Entry[]
 }
 
 model Tag {
@@ -45,7 +47,7 @@ model Tag {
   wpId      Int?       @unique
   name      String
   slug      String     @unique
-  contents  Content[]
+  entries  Entry[]
 }
 
 model AdminUser {

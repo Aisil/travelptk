@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DynamicPublicMap from "@/components/DynamicPublicMap";
 import { Star, Wifi, Coffee, Car, Wind, Tv, Calendar, Users, MapPin, ArrowRight, Check, Waves } from "lucide-react";
 import Link from "next/link";

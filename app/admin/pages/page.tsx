@@ -32,19 +32,19 @@ export default async function AdminPagesPage() {
                   <td colSpan={5} className="px-6 py-12 text-center text-sm text-gray-500">Страницы не найдены</td>
                 </tr>
               ) : (
-                pages.map((page) => (
+                pages.map((page: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                   <tr key={page.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        {page.mainImage && (
-                          <img src={page.mainImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
+                        {page.featuredImage && (
+                          <img src={page.featuredImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
                         )}
                         <div className="text-sm font-medium text-gray-900 line-clamp-1">{page.title}</div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{page.slug}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                      {page.mainImage ? "📷" : "—"} {page.gallery ? "🖼" : ""}
+                      {page.featuredImage ? "📷" : "—"} {page.gallery ? "🖼" : ""}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span

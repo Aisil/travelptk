@@ -3,12 +3,18 @@ import { getPosts, publishContent } from "@/lib/actions";
 
 export const dynamic = 'force-dynamic';
 
-export default async function PostsPage() {
-  const posts = await getPosts();
+export default async function PostsPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const categoryFilter = resolvedSearchParams.category || '';
+  const allPosts = await getPosts();
+  const posts = categoryFilter ? allPosts.filter((p: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => p.category?.slug === categoryFilter || p.category?.id.toString() === categoryFilter) : allPosts;
+
+  // Extract unique categories from posts for the filter dropdown
+  const categories = Array.from(new Set(allPosts.map((p: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => p.category).filter(Boolean).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.stringify(c)))).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.parse(c as string));
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Записи</h1>
           <p className="text-sm text-gray-500 mt-1">Локации, услуги, дома — весь контент из WordPress</p>
@@ -21,6 +27,17 @@ export default async function PostsPage() {
         </Link>
       </div>
 
+      <div className="flex gap-2 mb-6 items-center">
+        <span className="text-sm font-medium text-gray-700">Фильтр по рубрике:</span>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/admin/posts" className={`px-3 py-1 text-xs rounded-full ${!categoryFilter ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>Все</Link>
+          {categories.map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
+            <Link key={c.id} href={`/admin/posts?category=${c.id}`} className={`px-3 py-1 text-xs rounded-full ${categoryFilter === c.id.toString() ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+              {c.name}
+            </Link>
+          ))}
+        </div>
+      </div>
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -41,12 +58,12 @@ export default async function PostsPage() {
                   </td>
                 </tr>
               ) : (
-                posts.map((post) => (
+                posts.map((post: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                   <tr key={post.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        {post.mainImage && (
-                          <img src={post.mainImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
+                        {post.featuredImage && (
+                          <img src={post.featuredImage} alt="" className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
                         )}
                         <div>
                           <div className="text-sm font-medium text-gray-900 line-clamp-1">{post.title}</div>
@@ -58,7 +75,7 @@ export default async function PostsPage() {
                       {post.category?.name || "—"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                      {post.mainImage ? "📷" : "—"} {post.gallery ? "🖼" : ""} {post.videoUrl ? "🎬" : ""}
+                      {post.featuredImage ? "📷" : "—"} {post.gallery ? "🖼" : ""} {post.videoUrl ? "🎬" : ""}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
