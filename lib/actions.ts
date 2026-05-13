@@ -53,10 +53,10 @@ export async function getCategoryTree() {
       },
       orderBy: { name: 'asc' }
     });
-    return categories;
+    return categories || [];
   } catch (error: any) {
     console.error("Error fetching category tree:", error);
-    throw new Error(error.message);
+    return [];
   }
 }
 

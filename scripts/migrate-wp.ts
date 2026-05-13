@@ -61,8 +61,13 @@ async function syncTags(wpTags: any[]) {
 
 async function syncCategories(wpCategories: any[]) {
   const categoryMap = new Map(); // wpId -> dbId
+  const parentMap = new Map();
+
+  // First pass: Create or update all categories, storing their parent IDs
   for (const cat of wpCategories) {
     if (!cat) continue;
+    parentMap.set(cat.id, cat.parent);
+
     const existing = await prisma.category.upsert({
       where: { wpId: cat.id },
       update: { name: cat.name, slug: cat.slug },
@@ -70,6 +75,21 @@ async function syncCategories(wpCategories: any[]) {
     });
     categoryMap.set(cat.id, existing.id);
   }
+
+  // Second pass: Link children to their parents
+  for (const [wpId, dbId] of categoryMap.entries()) {
+    const parentWpId = parentMap.get(wpId);
+    if (parentWpId && parentWpId !== 0) {
+      const parentDbId = categoryMap.get(parentWpId);
+      if (parentDbId) {
+        await prisma.category.update({
+          where: { id: dbId },
+          data: { parentId: parentDbId }
+        });
+      }
+    }
+  }
+
   return categoryMap;
 }
 
