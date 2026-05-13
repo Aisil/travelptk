@@ -7,7 +7,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
   const resolvedSearchParams = await searchParams;
   const categoryFilter = resolvedSearchParams.category || '';
   const allPosts = await getPosts();
-  const posts = categoryFilter ? allPosts.filter(p => p.category?.slug === categoryFilter || p.category?.id.toString() === categoryFilter) : allPosts;
+  const posts = categoryFilter ? allPosts.filter((p: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => p.category?.slug === categoryFilter || p.category?.id.toString() === categoryFilter) : allPosts;
 
   // Extract unique categories from posts for the filter dropdown
   const categories = Array.from(new Set(allPosts.map((p: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => p.category).filter(Boolean).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.stringify(c)))).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.parse(c as string));
