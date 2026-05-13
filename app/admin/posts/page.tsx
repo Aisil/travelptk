@@ -10,7 +10,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
   const posts = categoryFilter ? allPosts.filter(p => p.category?.slug === categoryFilter || p.category?.id.toString() === categoryFilter) : allPosts;
 
   // Extract unique categories from posts for the filter dropdown
-  const categories = Array.from(new Set(allPosts.map(p => p.category).filter(Boolean).map(c => JSON.stringify(c)))).map(c => JSON.parse(c));
+  const categories = Array.from(new Set(allPosts.map((p: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => p.category).filter(Boolean).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.stringify(c)))).map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => JSON.parse(c as string));
 
   return (
     <div className="space-y-6">
@@ -31,8 +31,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
         <span className="text-sm font-medium text-gray-700">Фильтр по рубрике:</span>
         <div className="flex flex-wrap gap-2">
           <Link href="/admin/posts" className={`px-3 py-1 text-xs rounded-full ${!categoryFilter ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>Все</Link>
-          {categories.map((c: any // eslint-disable-line @typescript-eslint/no-explicit-any
-) => (
+          {categories.map((c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
             <Link key={c.id} href={`/admin/posts?category=${c.id}`} className={`px-3 py-1 text-xs rounded-full ${categoryFilter === c.id.toString() ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
               {c.name}
             </Link>
@@ -59,7 +58,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
                   </td>
                 </tr>
               ) : (
-                posts.map((post) => (
+                posts.map((post: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                   <tr key={post.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">

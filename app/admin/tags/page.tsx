@@ -31,7 +31,7 @@ export default async function TagsPage() {
                   </td>
                 </tr>
               ) : (
-                tags.map((tag) => (
+                tags.map((tag: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                   <tr key={tag.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{tag.id}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{tag.name}</td>

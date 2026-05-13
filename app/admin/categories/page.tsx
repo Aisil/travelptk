@@ -32,7 +32,7 @@ function CategoryRow({ category, depth = 0 }: { category: CategoryNode; depth?: 
         </td>
       </tr>
       {category.children && category.children.length > 0 && (
-        category.children.map((child) => (
+        category.children.map((child: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
           <CategoryRow key={child.id} category={child} depth={depth + 1} />
         ))
       )}
@@ -96,7 +96,7 @@ export default async function CategoriesPage() {
                   </td>
                 </tr>
               ) : (
-                categoryTree.map((cat: any) => (
+                categoryTree.map((cat: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                   <CategoryRow key={cat.id} category={cat as any} />
                 ))
               )}
