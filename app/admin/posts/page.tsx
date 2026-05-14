@@ -89,6 +89,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                      <Link href={`/admin/posts/${post.id}/edit`} className="text-indigo-600 hover:text-indigo-900">Редактировать</Link>
                       <Link href={`/post/${post.slug}`} className="text-blue-600 hover:text-blue-800" target="_blank">Просмотр</Link>
                       {post.status === "PENDING" && (
                         <form className="inline" action={async () => {
