@@ -12,7 +12,8 @@ import {
   Menu,
   X,
   LogOut,
-  MapPin
+  MapPin,
+  Image as ImageIcon
 } from "lucide-react";
 
 export default function AdminLayout({
@@ -34,6 +35,7 @@ export default function AdminLayout({
     { name: "Записи", href: "/admin/posts", icon: FileText },
     { name: "Страницы", href: "/admin/pages", icon: File },
     { name: "Рубрики", href: "/admin/categories", icon: FolderTree },
+    { name: "Медиа", href: "/admin/media", icon: ImageIcon },
     { name: "Метки", href: "/admin/tags", icon: Tags },
   ];
 
