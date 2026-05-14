@@ -200,3 +200,55 @@ export const getAllPublishedLocations = getAllPublishedPosts;
 export const getLocationBySlug = getContentBySlug;
 export const createLocation = createContent;
 export const publishLocation = publishContent;
+
+export async function getContentById(id: number) {
+  try {
+    return await prisma.entry.findUnique({
+      where: { id },
+      include: { category: true, tags: true },
+    });
+  } catch (error: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
+    console.error("Error fetching content by id:", error);
+    return null;
+  }
+}
+
+export async function updateContent(id: number, formData: FormData) {
+  const title = formData.get("title") as string;
+  const slug = formData.get("slug") as string;
+  const content = formData.get("content") as string;
+  const contentType = (formData.get("contentType") as string) || "POST";
+  const latitude = parseFloat(formData.get("latitude") as string);
+  const longitude = parseFloat(formData.get("longitude") as string);
+  const categoryIdRaw = formData.get("categoryId") as string;
+  const categoryId = categoryIdRaw ? parseInt(categoryIdRaw, 10) : null;
+  const tagIds = formData.getAll("tagIds").map(id => parseInt(id as string, 10)).filter(id => !isNaN(id));
+
+  if (!title || !slug || !content) {
+    return { error: "Заполните обязательные поля" };
+  }
+
+  try {
+    await prisma.entry.update({
+      where: { id },
+      data: {
+        title,
+        slug,
+        content,
+        contentType: contentType as any /* eslint-disable-line @typescript-eslint/no-explicit-any */,
+        latitude: isNaN(latitude) ? null : latitude,
+        longitude: isNaN(longitude) ? null : longitude,
+        categoryId: categoryId && !isNaN(categoryId) ? categoryId : null,
+        tags: {
+          set: tagIds.map(tagId => ({ id: tagId }))
+        }
+      }
+    });
+    revalidatePath("/admin/posts");
+    revalidatePath("/admin/pages");
+    return { success: true };
+  } catch (error: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
+    console.error("Error updating content:", error);
+    return { error: "Ошибка сохранения." };
+  }
+}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import Editor from "@/components/Editor";
-import { createContent } from "@/lib/actions";
+import { createContent, updateContent } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 
 // Dynamically import MapPicker to disable SSR (Leaflet requires window object)
@@ -27,16 +27,18 @@ interface Tag {
 }
 
 interface ContentFormProps {
+  initialData?: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
+
   categories: Category[];
   tags?: Tag[];
   contentType?: "POST" | "PAGE";
 }
 
-export default function ContentForm({ categories, tags = [], contentType = "POST" }: ContentFormProps) {
+export default function ContentForm({ categories, tags = [], contentType = "POST", initialData }: ContentFormProps) {
   const router = useRouter();
-  const [coords, setCoords] = useState<{ lat: number | null; lng: number | null }>({ lat: null, lng: null });
+  const [coords, setCoords] = useState<{ lat: number | null; lng: number | null }>({ lat: initialData?.latitude || null, lng: initialData?.longitude || null });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [editorContent, setEditorContent] = useState("");
+  const [editorContent, setEditorContent] = useState(initialData?.content || "");
 
   async function handleSubmit(formData: FormData) {
     formData.set("content", editorContent);
@@ -49,7 +51,12 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
     if (coords.lat) formData.set("latitude", coords.lat.toString());
     if (coords.lng) formData.set("longitude", coords.lng.toString());
     
-    const res = await createContent(formData);
+    let res;
+    if (initialData?.id) {
+      res = await updateContent(initialData.id, formData);
+    } else {
+      res = await createContent(formData);
+    }
     
     if (res?.success) {
       router.push(contentType === "POST" ? "/admin/posts" : "/admin/pages");
@@ -73,6 +80,7 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
             id="title"
             name="title"
             required
+            defaultValue={initialData?.title || ""}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm"
             placeholder={contentType === "POST" ? "Название локации или услуги" : "Заголовок страницы"}
           />
@@ -87,6 +95,7 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
             id="slug"
             name="slug"
             required
+            defaultValue={initialData?.slug || ""}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm font-mono text-sm"
             placeholder="my-cool-link"
           />
@@ -103,7 +112,7 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
               id="categoryId"
               name="categoryId"
               required
-              defaultValue=""
+              defaultValue={initialData?.categoryId || ""}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-white"
             >
               <option value="" disabled>Выберите рубрику...</option>
@@ -128,6 +137,7 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
                       name="tagIds"
                       value={tag.id}
                       className="rounded text-blue-600 focus:ring-blue-500"
+                      defaultChecked={initialData?.tags?.some((t: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => t.id === tag.id)}
                     />
                     <span className="truncate" title={tag.name}>{tag.name}</span>
                   </label>
