@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import Editor from "@/components/Editor";
 import { createContent } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 
@@ -35,8 +36,10 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
   const router = useRouter();
   const [coords, setCoords] = useState<{ lat: number | null; lng: number | null }>({ lat: null, lng: null });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editorContent, setEditorContent] = useState("");
 
   async function handleSubmit(formData: FormData) {
+    formData.set("content", editorContent);
     setIsSubmitting(true);
     
     // Set content type explicitly
@@ -140,14 +143,7 @@ export default function ContentForm({ categories, tags = [], contentType = "POST
         <label htmlFor="content" className="block text-sm font-medium text-gray-700">
           Контент (текст)
         </label>
-        <textarea
-          id="content"
-          name="content"
-          rows={10}
-          required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm resize-y"
-          placeholder="Основной текст..."
-        />
+        <div className="min-h-[300px] border border-gray-300 rounded-lg"><Editor content={editorContent} onChange={setEditorContent} /></div>
       </div>
 
       {contentType === "POST" && (
