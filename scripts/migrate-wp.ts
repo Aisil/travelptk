@@ -8,6 +8,19 @@ const WP_API_URL = 'https://po-karelii.ru/wp-json/wp/v2';
 
 function cleanContent(html: string): string {
   if (!html) return '';
+
+  // Remove <a> tags wrapping <img> if either contains po-karelii.ru
+  html = html.replace(/<a[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/a>/gi, (match) => {
+    if (match.includes('po-karelii.ru')) return '';
+    return match;
+  });
+
+  // Remove any remaining <img> containing po-karelii.ru
+  html = html.replace(/<img[^>]*>/gi, (match) => {
+    if (match.includes('po-karelii.ru')) return '';
+    return match;
+  });
+
   return html
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '') // Remove <style> tags and their content
     .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '') // Remove SVG elements
