@@ -62,7 +62,7 @@ export default function AdminLayout({
           </h2>
         </div>
         <nav className="flex-1 px-4 py-4 space-y-1">
-          {navigation.map((item: any) => {
+          {navigation.map((item: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
             const isActive = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
             const Icon = item.icon;
             return (

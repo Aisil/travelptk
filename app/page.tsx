@@ -75,42 +75,88 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Locations Grid */}
+
+      {/* Regions Grid */}
       <section className="bg-white text-on-secondary-fixed py-section-padding-y w-full border-t border-gray-100">
         <div className="max-w-container-max mx-auto px-gutter">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-element-gap">
-            {locations.length > 0 ? locations.map((loc: any) => (
-              <Link key={loc.id} href={`/post/${loc.slug}`} className="group card-hover-effect cursor-pointer block">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-lg bg-zinc-100">
-                  <img 
-                    alt={loc.title} 
-                    className="w-full h-full object-cover transition-transform duration-500" 
-                    src={loc.featuredImage || `https://images.unsplash.com/photo-1549884570-353ee5eb4232?q=80&w=800&auto=format&fit=crop`}
-                  />
-                </div>
-                <div className="px-2">
-                  <span className="inline-block bg-primary-container/10 text-on-primary-container font-label-caps text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-                    {loc.category?.name || "Локация"}
-                  </span>
-                  <h3 className="font-headline-md text-headline-md mb-2 group-hover:text-on-primary-container transition-colors">
-                    {loc.title}
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-secondary-fixed-variant mb-4 line-clamp-2">
-                    {loc.content}
-                  </p>
-                  <span className="font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Подробнее <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-                  </span>
-                </div>
-              </Link>
-            )) : (
-              <div className="col-span-3 text-center py-20 text-gray-500 font-body-md">
-                Локации пока недоступны.
+          <div className="mb-element-gap">
+            <span className="font-label-caps text-label-caps text-on-primary-container uppercase tracking-[0.3em] mb-4 block">Выберите направление</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-secondary-fixed uppercase">РАЙОНЫ КАРЕЛИИ</h2>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {/* Питкярантский район */}
+            <Link href="/region/pitkyarantskiy" className="group relative w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl block cursor-pointer">
+              <div className="absolute inset-0 z-0">
+                <img
+                  alt="Питкярантский район"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1549884570-353ee5eb4232?q=80&w=2670&auto=format&fit=crop"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
               </div>
-            )}
+              <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-12">
+                <span className="inline-block bg-primary-container/20 backdrop-blur-md text-primary-container font-label-caps text-[10px] px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 w-max border border-primary-container/30">
+                  Ладожские шхеры и водопады
+                </span>
+                <h3 className="font-display-xl text-[32px] md:text-[48px] text-white mb-2 group-hover:text-primary-container transition-colors uppercase tracking-tight">
+                  ПИТКЯРАНТСКИЙ РАЙОН
+                </h3>
+                <div className="flex items-center gap-2 font-label-caps text-label-caps uppercase tracking-widest text-secondary/80 group-hover:text-white transition-colors">
+                  Исследовать <span className="material-symbols-outlined text-[16px] group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Сортавальский район */}
+            <Link href="/region/sortavalskiy" className="group relative w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl block cursor-pointer">
+              <div className="absolute inset-0 z-0">
+                <img
+                  alt="Сортавальский район"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2526&auto=format&fit=crop"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+              </div>
+              <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-12">
+                <span className="inline-block bg-primary-container/20 backdrop-blur-md text-primary-container font-label-caps text-[10px] px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 w-max border border-primary-container/30">
+                  Мраморный каньон и архитектура
+                </span>
+                <h3 className="font-display-xl text-[32px] md:text-[48px] text-white mb-2 group-hover:text-primary-container transition-colors uppercase tracking-tight">
+                  СОРТАВАЛЬСКИЙ РАЙОН
+                </h3>
+                <div className="flex items-center gap-2 font-label-caps text-label-caps uppercase tracking-widest text-secondary/80 group-hover:text-white transition-colors">
+                  Исследовать <span className="material-symbols-outlined text-[16px] group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Олонецкий район */}
+            <Link href="/region/oloneckiy" className="group relative w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl block cursor-pointer">
+              <div className="absolute inset-0 z-0">
+                <img
+                  alt="Олонецкий район"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=2659&auto=format&fit=crop"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+              </div>
+              <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-12">
+                <span className="inline-block bg-primary-container/20 backdrop-blur-md text-primary-container font-label-caps text-[10px] px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 w-max border border-primary-container/30">
+                  Древние равнины и традиции
+                </span>
+                <h3 className="font-display-xl text-[32px] md:text-[48px] text-white mb-2 group-hover:text-primary-container transition-colors uppercase tracking-tight">
+                  ОЛОНЕЦКИЙ РАЙОН
+                </h3>
+                <div className="flex items-center gap-2 font-label-caps text-label-caps uppercase tracking-widest text-secondary/80 group-hover:text-white transition-colors">
+                  Исследовать <span className="material-symbols-outlined text-[16px] group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
+
 
       {/* Bento Grid Gallery */}
       <section className="bg-surface-container-lowest text-on-surface py-section-padding-y w-full">
