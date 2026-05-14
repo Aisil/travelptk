@@ -1,42 +1,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ContentType } from '@prisma/client';
 import "dotenv/config";
-
 import { prisma } from "../lib/prisma";
+import * as cheerio from "cheerio";
+import fs from "fs/promises";
+import path from "path";
 
 const WP_API_URL = 'https://po-karelii.ru/wp-json/wp/v2';
+const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 
-function cleanContent(html: string): string {
-  if (!html) return '';
+async function downloadImage(url: string, destFolder: string, filename: string): Promise<string | null> {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const arrayBuffer = await res.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
 
-  // Remove <a> tags wrapping <img> if either contains po-karelii.ru
-  html = html.replace(/<a[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/a>/gi, (match) => {
-    if (match.includes('po-karelii.ru')) return '';
-    return match;
-  });
+    await fs.mkdir(destFolder, { recursive: true });
+    const destPath = path.join(destFolder, filename);
+    await fs.writeFile(destPath, buffer);
 
-  // Remove any remaining <img> containing po-karelii.ru
-  html = html.replace(/<img[^>]*>/gi, (match) => {
-    if (match.includes('po-karelii.ru')) return '';
-    return match;
-  });
+    return `/uploads/${path.basename(destFolder)}/${filename}`;
+  } catch (error) {
+    console.error(`Failed to download ${url}`, error);
+    return null;
+  }
+}
 
-  return html
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '') // Remove <style> tags and their content
-    .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '') // Remove SVG elements
-    .replace(/<details[^>]*>[\s\S]*?<\/details>/gi, '') // Remove details elements
-    .replace(/<summary[^>]*>[\s\S]*?<\/summary>/gi, '') // Remove summary elements
-    .replace(/\s*class="[^"]*"/gi, '') // Remove class attributes
-    .replace(/\s*style="[^"]*"/gi, '') // Remove style attributes
-    .replace(/\s*id="[^"]*"/gi, '') // Remove id attributes
-    .replace(/\s*data-elementor-[^=]*="[^"]*"/gi, '') // Remove data-elementor attributes
-    .replace(/\s*data-e-[^=]*="[^"]*"/gi, '') // Remove data-e attributes
-    .replace(/<div[^>]*>/gi, '') // Remove <div> tags
-    .replace(/<\/div>/gi, '') // Remove </div> tags
-    .replace(/<span[^>]*>/gi, '') // Remove <span> tags
-    .replace(/<\/span>/gi, '') // Remove </span> tags
-    .replace(/<!--[\s\S]*?-->/g, '') // Remove comments
-    .trim();
+async function getOrCreateFolder(slug: string, title: string) {
+  let folder = await prisma.mediaFolder.findFirst({ where: { name: title } });
+  if (!folder) {
+    folder = await prisma.mediaFolder.create({ data: { name: title } });
+  }
+  return folder;
 }
 
 function extractCoordinates(text: string): { latitude: number | null, longitude: number | null } {
@@ -81,7 +77,6 @@ async function syncCategories(wpCategories: any[]) {
   const categoryMap = new Map(); // wpId -> dbId
   const parentMap = new Map();
 
-  // First pass: Create or update all categories, storing their parent IDs
   for (const cat of wpCategories) {
     if (!cat) continue;
     parentMap.set(cat.id, cat.parent);
@@ -94,7 +89,6 @@ async function syncCategories(wpCategories: any[]) {
     categoryMap.set(cat.id, existing.id);
   }
 
-  // Second pass: Link children to their parents
   for (const [wpId, dbId] of categoryMap.entries()) {
     const parentWpId = parentMap.get(wpId);
     if (parentWpId && parentWpId !== 0) {
@@ -118,13 +112,116 @@ async function processPosts(items: any[], type: ContentType, categoryMap: Map<nu
     const slug = item.slug || `post-${wpId}`;
     const rawContent = item.content?.rendered || '';
 
-    const cleanedContent = cleanContent(rawContent);
+    const folder = await getOrCreateFolder(slug, title);
+    const destFolder = path.join(UPLOADS_DIR, slug);
+
+    // Parse HTML with cheerio
+    const $ = cheerio.load(rawContent);
+
+    // Extract elementor gallery backgrounds
+    $('.elementor-gallery-item, [style*="background-image"]').each((_, el) => {
+      const bgImageMatch = $(el).attr('style')?.match(/url\(['"]?(.*?)['"]?\)/);
+      if (bgImageMatch && bgImageMatch[1]) {
+        // Append an img tag so the next block catches it
+        $(el).append(`<img src="${bgImageMatch[1]}" alt="Gallery Image" />`);
+      }
+    });
+
+    // Extract all images
+    const images: { oldUrl: string, newUrl: string, filename: string }[] = [];
+
+    $('img').each((_, el) => {
+      const src = $(el).attr('src') || $(el).attr('data-src') || $(el).parent('a').attr('href');
+      if (src && src.includes('po-karelii.ru')) {
+        const filename = path.basename(src.split('?')[0]);
+        const newUrl = `/uploads/${slug}/${filename}`;
+        images.push({ oldUrl: src, newUrl, filename });
+        // Replace src in HTML immediately
+        $(el).attr('src', newUrl);
+
+        // Remove link wrappers that point to images
+        if ($(el).parent('a').length > 0) {
+           $(el).unwrap();
+        }
+      }
+    });
+
+    // Remove unwanted tags
+    $('style, svg, details, summary').remove();
+
+    // Clean all tags from unwanted attributes
+    $('*').each((_, el) => {
+      const attributes = (el as any).attributes;
+      if (attributes) {
+        for (const attr of attributes) {
+          const name = attr.name;
+          if (
+            name === 'class' ||
+            name === 'style' ||
+            name === 'id' ||
+            name.startsWith('data-elementor-') ||
+            name.startsWith('data-e-') ||
+            name === 'srcset' ||
+            name === 'sizes' ||
+            name === 'data-src'
+          ) {
+            $(el).removeAttr(name);
+          }
+        }
+      }
+    });
+
+    // Unwrap span and div
+    $('span, div').each((_, el) => {
+       $(el).replaceWith($(el).html() || '');
+    });
+
+    let cleanedContent = $.html();
+
+    // Fallback: Remove any stray empty divs/spans
+    cleanedContent = cleanedContent.replace(/<div\s*><\/div>/gi, '').replace(/<span\s*><\/span>/gi, '');
+
     const { latitude, longitude } = extractCoordinates(rawContent);
+
+    // Download images and save to Media
+    for (const img of images) {
+      const downloaded = await downloadImage(img.oldUrl, destFolder, img.filename);
+      if (downloaded) {
+        await prisma.media.create({
+          data: {
+            filename: img.filename,
+            url: img.newUrl,
+            mimeType: 'image/jpeg', // Approximation
+            size: 0, // Impossible to know without full fs stat, skipping for now
+            title: img.filename,
+            folderId: folder.id
+          }
+        });
+      }
+    }
 
     // Extract featured image
     let featuredImage = null;
     if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'].length > 0) {
-      featuredImage = item._embedded['wp:featuredmedia'][0].source_url || null;
+      const sourceUrl = item._embedded['wp:featuredmedia'][0].source_url;
+      if (sourceUrl) {
+         const filename = path.basename(sourceUrl.split('?')[0]);
+         const newUrl = `/uploads/${slug}/${filename}`;
+         const downloaded = await downloadImage(sourceUrl, destFolder, filename);
+         if (downloaded) {
+             featuredImage = newUrl;
+             await prisma.media.create({
+              data: {
+                filename: filename,
+                url: newUrl,
+                mimeType: 'image/jpeg',
+                size: 0,
+                title: filename,
+                folderId: folder.id
+              }
+            });
+         }
+      }
     }
 
     // Determine category
@@ -165,6 +262,7 @@ async function processPosts(items: any[], type: ContentType, categoryMap: Map<nu
         longitude,
         featuredImage,
         categoryId,
+        tags: { connect: tagsConnect },
         status: 'PUBLISHED'
       }
     });
@@ -175,7 +273,6 @@ async function processPosts(items: any[], type: ContentType, categoryMap: Map<nu
 async function main() {
   console.log('Starting WP Import...');
 
-  // 1. Fetch categories
   const wpCategories = await fetchWpData('categories');
   const categoryMap = await syncCategories(wpCategories);
   console.log(`Synced ${categoryMap.size} categories.`);
@@ -184,11 +281,9 @@ async function main() {
   const tagMap = await syncTags(wpTags);
   console.log(`Synced ${tagMap.size} tags.`);
 
-  // 2. Fetch and process posts
   const posts = await fetchWpData('posts');
   await processPosts(posts, 'POST', categoryMap, tagMap);
 
-  // 3. Fetch and process pages
   const pages = await fetchWpData('pages');
   await processPosts(pages, 'PAGE', categoryMap, tagMap);
 
